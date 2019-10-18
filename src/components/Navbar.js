@@ -28,7 +28,7 @@ const backgroundStyle = {
 
 const navStyle = {
     listStyleType: 'none',
-    //borderTop: 8,
+    //marginTop: 10,
     fontSize: 15,
     fontFamily: 'sans-serif',
     //float: 'left',
@@ -37,7 +37,7 @@ const navStyle = {
 const menuStyle = {
     display: 'inline',
     //float: 'left',
-    marginRight: 10,
+    marginRight: 5,
 }
 
 const linkStyle = {
