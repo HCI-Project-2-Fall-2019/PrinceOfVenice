@@ -26,7 +26,7 @@ const logoStyle = {
 
 const backgroundStyle = {
     height: 170,
-    backgroundPosition: 'center 10px',
+    backgroundPosition: 'center 20px',
     backgroundColor: '#22498a',
     backgroundImage: "url(" + background + ")",
     backgroundRepeat: 'no-repeat',
