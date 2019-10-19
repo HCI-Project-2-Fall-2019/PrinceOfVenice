@@ -36,6 +36,10 @@ class Catering extends Component {
         this.setState({ email: val });
     }
 
+    handleSubmit = () => {
+        alert('Form Submitted');
+    }
+
     render() {
         const { region, phone, email, date, time } = this.state;  
         return (
@@ -110,10 +114,6 @@ class Catering extends Component {
                                     />
                             </MuiPickersUtilsProvider>
                             </div>
-                        </div>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> Number of People: </div> 
-                            
                         </div>
                         <div style={rowStyle}> 
                             <div style={columnStyle}> Food Choice: </div> 

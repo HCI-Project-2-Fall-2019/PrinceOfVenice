@@ -26,6 +26,10 @@ class ContactUs extends Component {
         this.setState({ email: val });
     }
 
+    handleSubmit = () => {
+        alert('Form Submitted');
+    }
+
     render() {
         const { region, phone, email } = this.state;  
         return (
