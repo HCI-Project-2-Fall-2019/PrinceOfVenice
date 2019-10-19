@@ -17,7 +17,6 @@ const backgroundStyle = {
     backgroundImage: "url(" + background + ")",
     backgroundRepeat: 'no-repeat',
     resizeMode: "stretch",
-    paddingBottom: 170
 }
 
 export default Footer;

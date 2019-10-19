@@ -4,11 +4,13 @@ import TextField from '@material-ui/core/TextField';
 import MuiPhoneNumber from "material-ui-phone-number";
 import { RegionDropdown } from 'react-country-region-selector';
 import Button from '@material-ui/core/Button';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+
 
 class ContactUs extends Component {
     constructor (props) {
         super(props);
-        this.state = {region: '', phone: ''};
+        this.state = {region: '', phone: '', email: ''};
     }
      
     selectRegion (val) {
@@ -19,12 +21,17 @@ class ContactUs extends Component {
         this.setState({ phone: val });
     }
 
+    setEmail = (event) => {
+        const val = event.target.value;
+        this.setState({ email: val });
+    }
+
     render() {
-        const { region, phone } = this.state;  
+        const { region, phone, email } = this.state;  
         return (
             <div style={backgroundStyle}>
                 Contact Us
-                <form onSubmit={this.handleSubmit} style={boxStyle}>
+                <ValidatorForm onSubmit={this.handleSubmit} style={boxStyle}>
                     <div style={textStyle}> If you need any information, or if you want our food trucks for some event, 
                         please contact us by using the form below and you will be contacted as soon as possible. 
                         You can also contact us by calling (310) 614-5443. 
@@ -61,16 +68,22 @@ class ContactUs extends Component {
                         <div style={rowStyle}> 
                             <div style={columnStyle}> Email: </div> 
                             <div style={columnStyle}> 
-                                <TextField  floatingLabelText="ID Number" 
-                                            InputProps={{disableUnderline: true,}} 
-                                            style={textBoxStyle}
-                                            required/> 
+                                <TextValidator
+                                    onChange={this.setEmail}
+                                    name="email"
+                                    value={email}
+                                    validators={['required', 'isEmail']}
+                                    errorMessages={['This field is required', 'Email is not valid']}
+                                    InputProps={{disableUnderline: true,}} 
+                                    style={textBoxStyle}
+                                />
                             </div>
                         </div>
                         <div style={rowStyle}> 
                             <div style={columnStyle}> Phone: </div> 
                             <div style={columnStyle}> 
                                 <MuiPhoneNumber defaultCountry={'us'}
+                                                onlyCountries={['us']}
                                                 value={phone}
                                                 onChange={(val) => this.setPhoneNumber(val)}
                                                 InputProps={{disableUnderline: true,}} 
@@ -99,14 +112,14 @@ class ContactUs extends Component {
                             </div>
                         </div>
                     </div>
-                </form>
+                </ValidatorForm>
             </div>         
         );
     }
 }
 
 const backgroundStyle = {
-    height: 600,
+    height: 700,
     backgroundPosition: 'center',
     backgroundColor: '#22498a',
     backgroundImage: "url(" + background + ")",
@@ -126,7 +139,7 @@ const textStyle = {
 }
 
 const boxStyle = {
-    height: 900,
+    height: 650,
     //width: '80%',
     width: '480px',
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
@@ -148,7 +161,7 @@ const rowStyle = {
     margin: 'auto',
     display: 'table',
     paddingBottom: 10,
-    height: '40px'
+    height: '50px'
 }
 
 const columnStyle = {
