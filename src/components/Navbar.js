@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import ContentSample from './pages/ContentSample';
 import OurMenu from './pages/OurMenu';
 import AboutUs from './pages/AboutUs';
 import FindOurTrucks from './pages/FindOurTrucks';

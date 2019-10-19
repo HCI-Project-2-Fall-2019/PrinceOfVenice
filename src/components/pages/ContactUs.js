@@ -40,8 +40,15 @@ class ContactUs extends Component {
                         <div style={rowStyle}> 
                             <div style={columnStyle}> Name: </div> 
                             <div style={columnStyle}> 
-                                <TextField  floatingLabelText="ID Number" 
-                                            InputProps={{disableUnderline: true,}} 
+                                <TextField  InputProps={{disableUnderline: true,}} 
+                                            style={textBoxStyle}
+                                            required/> 
+                            </div>
+                        </div>
+                        <div style={rowStyle}> 
+                            <div style={columnStyle}> City: </div> 
+                            <div style={columnStyle}> 
+                                <TextField  InputProps={{disableUnderline: true,}} 
                                             style={textBoxStyle}
                                             required/> 
                             </div>
@@ -54,15 +61,6 @@ class ContactUs extends Component {
                                                     onChange={(val) => this.selectRegion(val)}
                                                     style={selectStyle}
                                                     required/> 
-                            </div>
-                        </div>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> City: </div> 
-                            <div style={columnStyle}> 
-                                <TextField  floatingLabelText="ID Number" 
-                                            InputProps={{disableUnderline: true,}} 
-                                            style={textBoxStyle}
-                                            required/> 
                             </div>
                         </div>
                         <div style={rowStyle}> 
@@ -94,8 +92,7 @@ class ContactUs extends Component {
                         <div style={rowStyle}> 
                             <div style={columnStyle}> Message: </div> 
                             <div style={columnStyle}> 
-                                <TextField  floatingLabelText="ID Number" 
-                                            InputProps={{disableUnderline: true,}} 
+                                <TextField  InputProps={{disableUnderline: true,}} 
                                             style={textAreaStyle}
                                             multiline={true}
                                             rows={4}
