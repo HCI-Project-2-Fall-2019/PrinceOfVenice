@@ -87,16 +87,18 @@ const boxStyle = {
     resizeMode: "stretch",
     borderRadius: 10,
     margin: "auto",
-    resizeMode: 'stretch',
 }
 
 const formStyle = {
-    float: 'left',
-    marginLeft: 40,
-    textAlign: 'left'
+    //margin: 'auto',
+    //float: 'left',
+    //marginLeft: 40,
+    //textAlign: 'left'
 }
 
 const rowStyle = {
+    textAlign: 'left',
+    margin: 'auto',
     display: 'table',
     paddingBottom: 10,
 }
