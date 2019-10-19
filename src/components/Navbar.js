@@ -29,12 +29,12 @@ class Navbar extends Component {
                 <Switch> 
                     <Route path='/AboutUs' component={AboutUs} />
                     <Route path='/OurMenu' component={OurMenu} />
-                    <Route path='/' component={FindOurTrucks} />
                     <Route path='/PhotoGallery' component={PhotoGallery} />
                     <Route path='/NewsPress' component={NewsPress} />
                     <Route path='/Catering' component={Catering} />
                     <Route path='/LicenseTerms' component={LicenseTerms} />
                     <Route path='/ContactUs' component={ContactUs} />
+                    <Route path='/' component={FindOurTrucks} />
                 </Switch>  
             </Router>      
         );
