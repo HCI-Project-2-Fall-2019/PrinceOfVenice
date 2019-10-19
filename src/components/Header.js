@@ -22,7 +22,7 @@ const logoStyle = {
     height:150,
     alignSelf: 'stretch',
     resizeMode: 'stretch',
-    float: 'center'
+    float: 'left'
 }
 
 const restaurantStyle = {

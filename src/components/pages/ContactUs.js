@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import background from '../images/bk_content.png';
 import TextField from '@material-ui/core/TextField';
-import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import MuiPhoneNumber from "material-ui-phone-number";
+import { RegionDropdown } from 'react-country-region-selector';
 import Button from '@material-ui/core/Button';
-import { relative } from 'path';
-import { textAlign } from '@material-ui/system';
 
 class ContactUs extends Component {
     constructor (props) {
         super(props);
-        this.state = {region: '' };
-      }
+        this.state = {region: '', phone: ''};
+    }
      
-      selectRegion (val) {
+    selectRegion (val) {
         this.setState({ region: val });
-      }
+    }
+
+    setPhoneNumber(val) {
+        this.setState({ phone: val });
+    }
 
     render() {
-        const { region } = this.state;  
+        const { region, phone } = this.state;  
         return (
             <div style={backgroundStyle}>
                 Contact Us
@@ -32,7 +35,8 @@ class ContactUs extends Component {
                             <div style={columnStyle}> 
                                 <TextField  floatingLabelText="ID Number" 
                                             InputProps={{disableUnderline: true,}} 
-                                            style={textBoxStyle}/> 
+                                            style={textBoxStyle}
+                                            required/> 
                             </div>
                         </div>
                         <div style={rowStyle}> 
@@ -41,14 +45,57 @@ class ContactUs extends Component {
                                 <RegionDropdown     country='United States' 
                                                     value={region}
                                                     onChange={(val) => this.selectRegion(val)}
-                                                    style={selectStyle}/> </div>
+                                                    style={selectStyle}
+                                                    required/> 
+                            </div>
+                        </div>
+                        <div style={rowStyle}> 
+                            <div style={columnStyle}> City: </div> 
+                            <div style={columnStyle}> 
+                                <TextField  floatingLabelText="ID Number" 
+                                            InputProps={{disableUnderline: true,}} 
+                                            style={textBoxStyle}
+                                            required/> 
+                            </div>
                         </div>
                         <div style={rowStyle}> 
                             <div style={columnStyle}> Email: </div> 
                             <div style={columnStyle}> 
                                 <TextField  floatingLabelText="ID Number" 
                                             InputProps={{disableUnderline: true,}} 
-                                            style={textBoxStyle}/> 
+                                            style={textBoxStyle}
+                                            required/> 
+                            </div>
+                        </div>
+                        <div style={rowStyle}> 
+                            <div style={columnStyle}> Phone: </div> 
+                            <div style={columnStyle}> 
+                                <MuiPhoneNumber defaultCountry={'us'}
+                                                value={phone}
+                                                onChange={(val) => this.setPhoneNumber(val)}
+                                                InputProps={{disableUnderline: true,}} 
+                                                style={textBoxStyle}
+                                                required/>
+                            </div>
+                        </div>
+                        <div style={rowStyle}> 
+                            <div style={columnStyle}> Message: </div> 
+                            <div style={columnStyle}> 
+                                <TextField  floatingLabelText="ID Number" 
+                                            InputProps={{disableUnderline: true,}} 
+                                            style={textAreaStyle}
+                                            multiline={true}
+                                            rows={4}
+                                            rowsMax={4}
+                                            required/> 
+                            </div>
+                        </div>
+                        <div style={rowStyle}> 
+                            <div style={columnStyle}> </div> 
+                            <div style={columnStyle}> 
+                                <Button label="Submit" 
+                                        type="submit"
+                                        style={submitButtonStyle}> Submit </Button>
                             </div>
                         </div>
                     </div>
@@ -59,7 +106,7 @@ class ContactUs extends Component {
 }
 
 const backgroundStyle = {
-    height: 500,
+    height: 600,
     backgroundPosition: 'center',
     backgroundColor: '#22498a',
     backgroundImage: "url(" + background + ")",
@@ -79,21 +126,21 @@ const textStyle = {
 }
 
 const boxStyle = {
-    height: 800,
-    //width: 950,
-    width: '80%',
+    height: 900,
+    //width: '80%',
+    width: '480px',
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
     backgroundRepeat: 'no-repeat',
     resizeMode: "stretch",
     borderRadius: 10,
-    margin: "auto",
+    margin: "auto"
 }
 
 const formStyle = {
     //margin: 'auto',
-    //float: 'left',
-    //marginLeft: 40,
-    //textAlign: 'left'
+    float: 'left',
+    marginLeft: 40,
+    textAlign: 'left'
 }
 
 const rowStyle = {
@@ -101,23 +148,41 @@ const rowStyle = {
     margin: 'auto',
     display: 'table',
     paddingBottom: 10,
+    height: '40px'
 }
 
 const columnStyle = {
     display: 'table-cell',
-    paddingLeft: 20
+    paddingLeft: 20,
+    width: '80px',
 }
 
 const textBoxStyle = {
-    width: 180,
+    width: 280,
     height: 30,
     border: "0.5px solid black",
     backgroundColor: '#fff',
     borderRadius: 5,
+    paddingLeft: 5
+}
+
+const textAreaStyle = {
+    width: 280,
+    height: 100,
+    border: "0.5px solid black",
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    paddingLeft: 5
 }
 
 const selectStyle = {
-    width: 185,
+    width: 285,
     height: 30
 }
+
+const submitButtonStyle = {
+    color: '#fff',
+    backgroundColor: 'rgba(34,73,138, 0.8)',
+}
+
 export default ContactUs;
