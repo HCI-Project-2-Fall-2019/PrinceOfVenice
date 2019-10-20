@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import background from '../images/bk_content.png';
 import { FormControl, TextField, Select, InputLabel, MenuItem, FormHelperText} from '@material-ui/core';
+import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker} from "@material-ui/pickers";
 import Button from '@material-ui/core/Button';
 import Form from 'react-material-ui-form';
-import { textAlign } from '@material-ui/system';
+import MomentUtils from "@date-io/moment";
 
 class ContactUs extends Component {
     constructor (props) {
@@ -49,7 +50,24 @@ class ContactUs extends Component {
                     value: '',
                     isInvalid: false,
                     errorMessage: ''
-                }
+                },
+                budget: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                food: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                servings: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                time: null,
+                date: null
             }
         };
         this.handleChange = this.handleChange.bind(this);
@@ -75,6 +93,24 @@ class ContactUs extends Component {
         console.log(this.state.form);
     }
 
+    handleDateChange(val) {
+        this.setState({ 
+            form: {
+                ...this.state.form,
+                date: val 
+            }
+        });
+    }
+
+    handleTimeChange(val) {
+        this.setState({ 
+            form: {
+                ...this.state.form,
+                time: val 
+            }
+        });
+    }
+
     GeneralInquiry() {
         return(
             <div style={rowStyle}>
@@ -96,41 +132,119 @@ class ContactUs extends Component {
         )
     }
 
-    Catering() {
+    Catering () {
+        const self = this;
         return(
             <div>
             <div style={rowStyle}>
-                        <TextField
-                            label="City"
-                            name="city"                    
-                            onChange={this.handleChange}
-                            margin="normal"
-                            variant="outlined"
-                            helperText={this.state.form.city.errorMessage}
-                            error={this.state.form.city.isInvalid}
-                            required
-                            style={{bottom: 16}}
-                        />
-                        {" "}
-                        <FormControl required variant="outlined" error={this.state.form.states.isInvalid}>
-                            <InputLabel>State</InputLabel>
-                            <Select
-                                name="states"
-                                //value={this.state.form.states.value}
-                                onChange={this.handleChange}
-                                labelWidth={50}
-                                style={{width: 230}}
-                            >
-                                <MenuItem value="">
-                                    <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={1}>General Inquiry</MenuItem>
-                                <MenuItem value={2}>Suggestions and Feedbacks</MenuItem>
-                                <MenuItem value={3}>Catering</MenuItem>
-                            </Select>
-                            <FormHelperText>{this.state.form.states.errorMessage}</FormHelperText>
-                        </FormControl>
-                    </div>
+                <TextField
+                    label="City"
+                    name="city"                    
+                    onChange={this.handleChange}
+                    margin="normal"
+                    variant="outlined"
+                    helperText={this.state.form.city.errorMessage}
+                    error={this.state.form.city.isInvalid}
+                    required
+                    style={{bottom: 16}}
+                />
+                {" "}
+                <FormControl required variant="outlined" error={this.state.form.states.isInvalid}>
+                    <InputLabel>State</InputLabel>
+                    <Select
+                        name="states"
+                        //value={this.state.form.states.value}
+                        onChange={this.handleChange}
+                        labelWidth={50}
+                        style={{width: 230}}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={10}>General Inquiry</MenuItem>
+                        <MenuItem value={11}>Suggestions and Feedbacks</MenuItem>
+                        <MenuItem value={12}>Catering</MenuItem>
+                    </Select>
+                    <FormHelperText>{this.state.form.states.errorMessage}</FormHelperText>
+                </FormControl>
+            </div>
+            <div style={rowStyle}>
+                <MuiPickersUtilsProvider utils={MomentUtils}>
+                    <KeyboardDatePicker
+                        name="date"
+                        placeholder="MM/DD/YYYY"
+                        format={"MM/DD/YYYY"}
+                        value={this.state.form.date}
+                        onChange={(val) => this.handleDateChange(val)}
+                        animateYearScrolling={false}
+                        autoOk={true}
+                        style={{width: 195, paddingBottom:20}}
+                    />
+                </MuiPickersUtilsProvider>
+                {' '}
+                <MuiPickersUtilsProvider utils={MomentUtils}>
+                    <KeyboardTimePicker                      
+                        placeholder="02:00 PM"                                                                    
+                        value={this.state.form.time}
+                        onChange={(val) => this.handleTimeChange(val)}
+                        style={{width: 230, paddingBottom:20}}
+                    />
+                </MuiPickersUtilsProvider>
+            </div>
+            <div style={rowStyle}>
+                <TextField
+                    label="Budget ($)"
+                    name="budget"
+                    type="number"
+                    inputProps={{ min: "50", max: "1000", step: "10" }}
+                    onChange={this.handleChange}
+                    margin="normal"
+                    variant="outlined"
+                    //helperText={this.state.form.budget.errorMessage}
+                    //error={this.state.form.budget.isInvalid}
+                    //required
+                    style={{width: 130, bottom: 16}}
+                />
+                {' '}                
+                <FormControl variant="outlined" error={this.state.form.servings.isInvalid}>
+                    <InputLabel>Servings</InputLabel>
+                    <Select
+                        name="servings"
+                        //value={this.state.form.servings.value}
+                        onChange={this.handleChange}
+                        labelWidth={60}
+                        style={{width: 130}}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={1}>1 to 10</MenuItem>
+                        <MenuItem value={2}>11 to 50</MenuItem>
+                        <MenuItem value={3}>50+</MenuItem>
+                        <MenuItem value={4}>Other</MenuItem>
+                    </Select>
+                    <FormHelperText>{this.state.form.servings.errorMessage}</FormHelperText>
+                </FormControl>
+                {' '}
+                <FormControl variant="outlined" error={this.state.form.food.isInvalid}>
+                    <InputLabel>Food Choice</InputLabel>
+                    <Select
+                        name="food"
+                        //value={this.state.form.food.value}
+                        onChange={this.handleChange}
+                        labelWidth={100}
+                        style={{width: 160}}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={1}>Pasta Only</MenuItem>
+                        <MenuItem value={2}>Pasta + Salad + Dessert</MenuItem>
+                        <MenuItem value={3}>Other</MenuItem>
+                    </Select>
+                    <FormHelperText>{this.state.form.food.errorMessage}</FormHelperText>
+                </FormControl>
+            </div>
             <div style={rowStyle}>
                 <TextField
                     label="Special Instruction"
@@ -143,7 +257,6 @@ class ContactUs extends Component {
                     variant="outlined"
                     helperText={this.state.form.feedback.errorMessage}
                     error={this.state.form.feedback.isInvalid}
-                    required
                     style={{width: 430}}
                 />
             </div>
