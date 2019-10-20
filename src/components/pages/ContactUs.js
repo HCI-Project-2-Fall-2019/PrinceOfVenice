@@ -141,8 +141,8 @@ class ContactUs extends Component {
                     onChange={this.handleChange}
                     margin="normal"
                     variant="outlined"
-                    helperText={this.state.form.inquiry.errorMessage}
-                    error={this.state.form.inquiry.isInvalid}
+                    helperText={this.state.form.feedback.errorMessage}
+                    error={this.state.form.feedback.isInvalid}
                     required
                     style={{width: 430}}
                 />
