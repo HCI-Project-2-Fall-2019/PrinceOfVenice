@@ -1,120 +1,177 @@
 import React, { Component } from 'react';
 import background from '../images/bk_content.png';
-import TextField from '@material-ui/core/TextField';
-import MuiPhoneNumber from "material-ui-phone-number";
-import { RegionDropdown } from 'react-country-region-selector';
+import { FormControl, TextField, Select, InputLabel, MenuItem, FormHelperText} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-
+import Form from 'react-material-ui-form';
+import { textAlign } from '@material-ui/system';
 
 class ContactUs extends Component {
     constructor (props) {
-        super(props);
-        this.state = {region: '', phone: '', email: ''};
+        super();
+        this.state = {
+            form: {
+                name: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                email: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                subject: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                inquiry: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                feedback: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                }
+            }
+        };
+        this.handleChange = this.handleChange.bind(this);
+
+        this.GeneralInquiry = this.GeneralInquiry.bind(this);
+        this.Feedback = this.Feedback.bind(this);
     }
      
-    selectRegion (val) {
-        this.setState({ region: val });
+    handleChange (evt) {
+        this.setState({ 
+            form: {
+                ...this.state.form, 
+                [evt.target.name]: {
+                    value: evt.target.value,
+                    isInvalid: false,
+                    errorMessage: '',
+                }
+            }
+        });
+        console.log(evt.target.value);
+        console.log(evt.target.name);
+        console.log(this.state.form);
     }
 
-    setPhoneNumber(val) {
-        this.setState({ phone: val });
+    GeneralInquiry() {
+        return(
+            <div style={rowStyle}>
+                <TextField
+                    label="General Inquiry"
+                    name="inquiry"
+                    multiline
+                    rows="4"
+                    rowsMax="4"
+                    onChange={this.handleChange}
+                    margin="normal"
+                    variant="outlined"
+                    helperText={this.state.form.inquiry.errorMessage}
+                    error={this.state.form.inquiry.isInvalid}
+                    required
+                    style={{width: 430}}
+                />
+            </div>
+        )
     }
 
-    setEmail = (event) => {
-        const val = event.target.value;
-        this.setState({ email: val });
-    }
-
-    handleSubmit = () => {
-        alert('Form Submitted');
+    Feedback() { 
+        return(
+            <div style={rowStyle}>
+                <TextField
+                    label="Feedback and Suggestions"
+                    name="feedback"
+                    multiline
+                    rows="4"
+                    rowsMax="4"
+                    onChange={this.handleChange}
+                    margin="normal"
+                    variant="outlined"
+                    helperText={this.state.form.feedback.errorMessage}
+                    error={this.state.form.feedback.isInvalid}
+                    required
+                    style={{width: 430}}
+                />
+            </div>
+        )
     }
 
     render() {
-        const { region, phone, email } = this.state;  
+        const { form } = this.state;
+        let subform;
+
+        if (form.subject.value === 1)  {
+            subform = this.GeneralInquiry();
+        } else if (form.subject.value === 2) {
+            subform = this.Feedback();
+        }
+
         return (
             <div style={backgroundStyle}>
-                Contact Us
-                <ValidatorForm onSubmit={this.handleSubmit} style={boxStyle}>
-                    <div style={textStyle}> If you need any information, or if you want our food trucks for some event, 
-                        please contact us by using the form below and you will be contacted as soon as possible. 
-                        You can also contact us by calling (310) 614-5443. 
+                <div style={titleStyle}> 
+                    CONTACT US
+                </div>
+                <Form style={boxStyle}>
+                    <div style={textStyle}>
+                        Please use the form below to contact us.
                     </div>
-                    <div style={formStyle}>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> Name: </div> 
-                            <div style={columnStyle}> 
-                                <TextField  InputProps={{disableUnderline: true,}} 
-                                            style={textBoxStyle}
-                                            required/> 
-                            </div>
-                        </div>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> City: </div> 
-                            <div style={columnStyle}> 
-                                <TextField  InputProps={{disableUnderline: true,}} 
-                                            style={textBoxStyle}
-                                            required/> 
-                            </div>
-                        </div>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> State: </div> 
-                            <div style={columnStyle}> 
-                                <RegionDropdown     country='United States' 
-                                                    value={region}
-                                                    onChange={(val) => this.selectRegion(val)}
-                                                    style={selectStyle}
-                                                    required/> 
-                            </div>
-                        </div>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> Email: </div> 
-                            <div style={columnStyle}> 
-                                <TextValidator
-                                    onChange={this.setEmail}
-                                    name="email"
-                                    value={email}
-                                    validators={['required', 'isEmail']}
-                                    errorMessages={['This field is required', 'Email is not valid']}
-                                    InputProps={{disableUnderline: true,}} 
-                                    style={textBoxStyle}
-                                />
-                            </div>
-                        </div>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> Phone: </div> 
-                            <div style={columnStyle}> 
-                                <MuiPhoneNumber defaultCountry={'us'}
-                                                onlyCountries={['us']}
-                                                value={phone}
-                                                onChange={(val) => this.setPhoneNumber(val)}
-                                                InputProps={{disableUnderline: true,}} 
-                                                style={textBoxStyle}
-                                                required/>
-                            </div>
-                        </div>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> Message: </div> 
-                            <div style={columnStyle}> 
-                                <TextField  InputProps={{disableUnderline: true,}} 
-                                            style={textAreaStyle}
-                                            multiline={true}
-                                            rows={4}
-                                            rowsMax={4}
-                                            required/> 
-                            </div>
-                        </div>
-                        <div style={rowStyle}> 
-                            <div style={columnStyle}> </div> 
-                            <div style={columnStyle}> 
-                                <Button label="Submit" 
-                                        type="submit"
-                                        style={submitButtonStyle}> Submit </Button>
-                            </div>
-                        </div>
+                    <div style={rowStyle}>
+                        <TextField
+                            label="Name"
+                            name="name"                    
+                            onChange={this.handleChange}
+                            margin="normal"
+                            variant="outlined"
+                            helperText={form.name.errorMessage}
+                            error={form.name.isInvalid}
+                            required
+                        />
+                        {" "}
+                        <TextField
+                            label="Email"
+                            name="email"                    
+                            onChange={this.handleChange}
+                            margin="normal"
+                            variant="outlined"
+                            helperText={form.email.errorMessage}
+                            error={form.email.isInvalid}
+                            required
+                            style={{width: 230}}
+                        />
                     </div>
-                </ValidatorForm>
-            </div>         
+                    <div style={rowStyle}>
+                        <FormControl required variant="outlined" error={form.subject.isInvalid}>
+                            <InputLabel>Subject</InputLabel>
+                            <Select
+                                name="subject"
+                                value={form.subject.value}
+                                onChange={this.handleChange}
+                                labelWidth={65}
+                                style={{width: 430}}
+                            >
+                                <MenuItem value="">
+                                    <em>None</em>
+                                </MenuItem>
+                                <MenuItem value={1}>General Inquiry</MenuItem>
+                                <MenuItem value={2}>Suggestions and Feedbacks</MenuItem>
+                                <MenuItem value={3}>Catering</MenuItem>
+                            </Select>
+                            <FormHelperText>{form.subject.errorMessage}</FormHelperText>
+                        </FormControl>
+                    </div>  
+                    {subform}
+                    <Button
+                        label="Submit" 
+                        type="submit"
+                        style={submitButtonStyle}> Submit 
+                    </Button>                  
+                </Form>
+            </div>
         );
     }
 }
@@ -128,70 +185,38 @@ const backgroundStyle = {
     resizeMode: "stretch"
 }
 
+const titleStyle = {
+    fontSize: 30,
+    fontFamily: 'CenturyGothic',
+    textAlign: 'center',
+    color: '#fff'
+}
+
 const textStyle = {
-    fontSize: 16,
-    fontFamily: 'Arial',
-    textAlign: 'left',
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 20,
-    marginBottom: 20,
-    paddingTop: 15
+    fontSize: 22,
+    fontFamily: 'CenturyGothic',
+    margin: 10,
+    paddingTop: 15,
+    textAlign: 'center'
 }
 
 const boxStyle = {
-    height: 650,
     //width: '80%',
     width: '480px',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    backgroundRepeat: 'no-repeat',
+    //height: '800px',
+    paddingTop: 10,
+    panddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     resizeMode: "stretch",
     borderRadius: 10,
     margin: "auto"
 }
 
-const formStyle = {
-    //margin: 'auto',
-    float: 'left',
-    marginLeft: 40,
-    textAlign: 'left'
-}
-
 const rowStyle = {
-    textAlign: 'left',
-    margin: 'auto',
-    display: 'table',
-    paddingBottom: 10,
-    height: '50px'
-}
-
-const columnStyle = {
-    display: 'table-cell',
-    paddingLeft: 20,
-    width: '80px',
-}
-
-const textBoxStyle = {
-    width: 280,
-    height: 30,
-    border: "0.5px solid black",
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    paddingLeft: 5
-}
-
-const textAreaStyle = {
-    width: 280,
-    height: 100,
-    border: "0.5px solid black",
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    paddingLeft: 5
-}
-
-const selectStyle = {
-    width: 285,
-    height: 30
+    float: 'left', 
+    marginLeft: 20,
 }
 
 const submitButtonStyle = {
