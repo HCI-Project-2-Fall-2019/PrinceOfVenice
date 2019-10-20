@@ -17,14 +17,14 @@ class Navbar extends Component {
             <Router>
                 <div style={backgroundStyle}>
                     <List>
-                        <Button style={menuStyle}> <Link to={'/AboutUs'} style={linkStyle}> ABOUT US  </Link> </Button>
-                        <Button style={menuStyle}> <Link to={'/OurMenu'} style={linkStyle}> OUR MENU  </Link> </Button>
-                        <Button style={menuStyle}> <Link to={'/'} style={linkStyle}> FIND OUR TRUCKS </Link> </Button>
-                        <Button style={menuStyle}> <Link to={'/PhotoGallery'} style={linkStyle}> PHOTOGALLERY </Link> </Button>
-                        <Button style={menuStyle}> <Link to={'/NewsPress'} style={linkStyle}> PRESS/NEWS </Link> </Button>
-                        <Button style={menuStyle}> <Link to={'/Catering'} style={linkStyle}> CATERING </Link> </Button>
-                        <Button style={menuStyle}> <Link to={'/LicenseTerms'} style={linkStyle}> LICENSE TERMS </Link> </Button>
-                        <Button style={menuStyle}> <Link to={'/ContactUs'} style={linkStyle}> CONTACT US </Link> </Button>
+                        <Link to={'/'} style={linkStyle}><Button style={menuStyle}>FIND OUR TRUCKS</Button></Link> 
+                        <Link to={'/OurMenu'} style={linkStyle}><Button style={menuStyle}>OUR MENU</Button></Link> 
+                        <Link to={'/PhotoGallery'} style={linkStyle}><Button style={menuStyle}>PHOTOGALLERY MENU</Button></Link> 
+                        <Link to={'/NewsPress'} style={linkStyle}><Button style={menuStyle}>PRESS/NEWS</Button></Link> 
+                        <Link to={'/AboutUs'} style={linkStyle}><Button style={menuStyle}>ABOUT US</Button></Link> 
+                        {/* <Button style={menuStyle}> <Link to={'/LicenseTerms'} style={linkStyle}> LICENSE TERMS </Link> </Button> */}
+                        <Link to={'/Catering'} style={linkStyle}><Button style={menuStyle}>CATERING MENU</Button></Link> 
+                        <Link to={'/ContactUs'} style={linkStyle}><Button style={menuStyle}>CONTACT US</Button></Link> 
                     </List>
                 </div> 
                 <Switch> 
@@ -64,8 +64,9 @@ const backgroundStyle = {
 const menuStyle = {
     display: 'inline',
     marginRight: 5,
-    whiteSpace: 'nowrap'
-
+    whiteSpace: 'nowrap',
+    textDecoration: 'none',
+    color: '#fff'
     //remove
     //display: "table-cell"
 }
