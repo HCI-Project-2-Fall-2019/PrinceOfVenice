@@ -23,7 +23,6 @@ class Navbar extends Component {
                         <Link to={'/NewsPress'} style={linkStyle}><Button style={menuStyle}>PRESS/NEWS</Button></Link> 
                         <Link to={'/AboutUs'} style={linkStyle}><Button style={menuStyle}>ABOUT US</Button></Link> 
                         {/* <Button style={menuStyle}> <Link to={'/LicenseTerms'} style={linkStyle}> LICENSE TERMS </Link> </Button> */}
-                        <Link to={'/Catering'} style={linkStyle}><Button style={menuStyle}>CATERING MENU</Button></Link> 
                         <Link to={'/ContactUs'} style={linkStyle}><Button style={menuStyle}>CONTACT US</Button></Link> 
                     </List>
                 </div> 
@@ -35,7 +34,7 @@ class Navbar extends Component {
                     <Route path='/Catering' component={Catering} />
                     <Route path='/LicenseTerms' component={LicenseTerms} />
                     <Route path='/ContactUs' component={ContactUs} />
-                    <Route path='/' component={FindOurTrucks} />
+                    <Route ex path='/' component={FindOurTrucks} />
                 </Switch>  
             </Router>      
         );
