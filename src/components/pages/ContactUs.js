@@ -71,6 +71,7 @@ class ContactUs extends Component {
             }
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.GeneralInquiry = this.GeneralInquiry.bind(this);
         this.Feedback = this.Feedback.bind(this);
@@ -91,6 +92,13 @@ class ContactUs extends Component {
         console.log(evt.target.value);
         console.log(evt.target.name);
         console.log(this.state.form);
+    }
+
+    handleSubmit (evt) {
+        //Function to validate (inside will modify isInvalid and errorMessage)
+        //Function to clear state if validated success
+        //Function to produce snackbar if validated success
+        alert("Submitted!"); 
     }
 
     handleDateChange(val) {
@@ -230,7 +238,7 @@ class ContactUs extends Component {
                     <InputLabel>Food Choice</InputLabel>
                     <Select
                         name="food"
-                        //value={this.state.form.food.value}
+                        //value={this.state.form.states.value}
                         onChange={this.handleChange}
                         labelWidth={100}
                         style={{width: 160}}
@@ -247,7 +255,7 @@ class ContactUs extends Component {
             </div>
             <div style={rowStyle}>
                 <TextField
-                    label="Special Instruction"
+                    label="Special Instruction(s)"
                     name="instruction"
                     multiline
                     rows="4"
@@ -302,7 +310,7 @@ class ContactUs extends Component {
                 <div style={titleStyle}> 
                     CONTACT US
                 </div>
-                <Form style={boxStyle}>
+                <Form style={boxStyle} onSubmit={this.handleSubmit}>
                     <div style={textStyle}>
                         Please use the form below to contact us.
                     </div>
@@ -375,7 +383,9 @@ const titleStyle = {
     fontSize: 30,
     fontFamily: 'CenturyGothic',
     textAlign: 'center',
-    color: '#fff'
+    color: '#fff',
+    paddingTop: 20,
+    paddingBottom: 10
 }
 
 const textStyle = {
