@@ -8,7 +8,7 @@ class Header extends Component {
         return (
             <div style={backgroundStyle}>
                 <img src={logo} style={logoStyle} className="App-logo" alt="logo"/>
-                <img src={restaurant} style={restaurantStyle} className="App-logo" alt="logo"/>
+                {/* <img src={restaurant} style={restaurantStyle} className="App-logo" alt="logo"/> */}
             </div>                
         );
     }
@@ -22,7 +22,7 @@ const logoStyle = {
     height:150,
     alignSelf: 'stretch',
     resizeMode: 'stretch',
-    float: 'left'
+    //float: 'left'
 }
 
 const restaurantStyle = {

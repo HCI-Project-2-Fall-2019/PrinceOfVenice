@@ -117,11 +117,9 @@ class Catering extends Component {
                         </div>
                         <div style={rowStyle}> 
                             <div style={columnStyle}> Food Choice: </div> 
-                           
                         </div>
                         <div style={rowStyle}> 
-                            <div style={columnStyle}> Budget: </div> 
-                            
+                            <div style={columnStyle}> Budget: </div>                             
                         </div>
                         <div style={rowStyle}> 
                             <div style={columnStyle}> Email: </div> 
@@ -176,7 +174,7 @@ class Catering extends Component {
 }
 
 const backgroundStyle = {
-    height: 1000,
+    height: 900,
     backgroundPosition: 'center',
     backgroundColor: '#22498a',
     backgroundImage: "url(" + background + ")",
@@ -196,7 +194,7 @@ const textStyle = {
 }
 
 const boxStyle = {
-    height: 950,
+    height: 850,
     //width: '80%',
     width: '480px',
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
