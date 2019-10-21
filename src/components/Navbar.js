@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import OurMenu from './pages/OurMenu';
 import AboutUs from './pages/AboutUs';
 import FindOurTrucks from './pages/FindOurTrucks';
-import PhotoGallery from './pages/PhotoGallery';
-import NewsPress from './pages/NewsPress';
+import Media from './pages/Media';
 import Catering from './pages/Catering';
 import LicenseTerms from './pages/LicenseTerms';
 import ContactUs from './pages/ContactUs';
@@ -19,18 +18,15 @@ class Navbar extends Component {
                     <List>
                         <Link to={'/'} style={linkStyle}><Button style={menuStyle}>FIND OUR TRUCKS</Button></Link> 
                         <Link to={'/OurMenu'} style={linkStyle}><Button style={menuStyle}>OUR MENU</Button></Link> 
-                        <Link to={'/PhotoGallery'} style={linkStyle}><Button style={menuStyle}>PHOTOGALLERY MENU</Button></Link> 
-                        <Link to={'/NewsPress'} style={linkStyle}><Button style={menuStyle}>PRESS/NEWS</Button></Link> 
+                        <Link to={'/Media'} style={linkStyle}><Button style={menuStyle}>Media</Button></Link>
                         <Link to={'/AboutUs'} style={linkStyle}><Button style={menuStyle}>ABOUT US</Button></Link> 
-                        {/* <Button style={menuStyle}> <Link to={'/LicenseTerms'} style={linkStyle}> LICENSE TERMS </Link> </Button> */}
-                        <Link to={'/ContactUs'} style={linkStyle}><Button style={menuStyle}>CONTACT US</Button></Link> 
+                        <Link to={'/ContactUs'} style={linkStyle}><Button style={menuStyle}>CONTACT US</Button></Link>
                     </List>
                 </div> 
                 <Switch> 
                     <Route path='/AboutUs' component={AboutUs} />
                     <Route path='/OurMenu' component={OurMenu} />
-                    <Route path='/PhotoGallery' component={PhotoGallery} />
-                    <Route path='/NewsPress' component={NewsPress} />
+                    <Route path='/Media' component={Media} />
                     <Route path='/Catering' component={Catering} />
                     <Route path='/LicenseTerms' component={LicenseTerms} />
                     <Route path='/ContactUs' component={ContactUs} />

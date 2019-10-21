@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import background from '../images/bk_content.png';
 
-class PhotoGallery extends Component {
+class Media extends Component {
     render() {
         return (  
             <div style={backgroundStyle}>
-                Photogallery
+                Media
             </div>         
         );
     }
@@ -20,4 +20,4 @@ const backgroundStyle = {
     resizeMode: "stretch"
 }
 
-export default PhotoGallery;
+export default Media;
