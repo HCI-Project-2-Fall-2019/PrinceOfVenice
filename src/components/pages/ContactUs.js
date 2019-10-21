@@ -381,7 +381,7 @@ const backgroundStyle = {
 
 const titleStyle = {
     fontSize: 30,
-    fontFamily: 'CenturyGothic',
+    //fontFamily: 'CenturyGothic',
     textAlign: 'center',
     color: '#fff',
     paddingTop: 20,
@@ -390,7 +390,7 @@ const titleStyle = {
 
 const textStyle = {
     fontSize: 22,
-    fontFamily: 'CenturyGothic',
+    //fontFamily: 'CenturyGothic',
     margin: 10,
     paddingTop: 15,
     textAlign: 'center'

@@ -42,7 +42,7 @@ class Navbar extends Component {
 }
 
 const backgroundStyle = {
-    height: 54,
+    //height: 54,
     backgroundColor: '#007ac3',
     borderTop: '6px solid #a5915f',
     resizeMode: 'stretch',
