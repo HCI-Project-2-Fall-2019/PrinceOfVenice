@@ -63,7 +63,6 @@ const backgroundStyle = {
 
 const menuStyle = {
     display: 'inline',
-    //marginRight: 5,
     whiteSpace: 'nowrap',
     textDecoration: 'none',
     color: '#fff'

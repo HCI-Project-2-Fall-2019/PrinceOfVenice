@@ -75,6 +75,9 @@ class ContactUs extends Component {
         this.GeneralInquiry = this.GeneralInquiry.bind(this);
         this.Feedback = this.Feedback.bind(this);
         this.Catering = this.Catering.bind(this);
+        this.validate = this.validate.bind(this);
+        this.clearForm = this.clearForm.bind(this);
+
     }
      
     handleChange (evt) {
@@ -88,15 +91,79 @@ class ContactUs extends Component {
                 }
             }
         });
-        console.log(evt.target.value);
-        console.log(evt.target.name);
-        console.log(this.state.form);
+    }
+
+    validate (evt) {
+        alert("Validating");
+    }
+
+    clearForm (evt) {
+        this.setState({ 
+            form: {
+                ...this.state.form,
+                name: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                email: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                inquiry: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                feedback: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                instruction: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                city: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                states: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                budget: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                food: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                servings: {
+                    value: '',
+                    isInvalid: false,
+                    errorMessage: ''
+                },
+                time: null,
+                date: null
+            }
+        })
     }
 
     handleSubmit (evt) {
         //Function to validate (inside will modify isInvalid and errorMessage)
         //Function to clear state if validated success
         //Function to produce snackbar if validated success
+        evt.preventDefault();
+        this.validate();
+        this.clearForm();
         alert("Submitted!"); 
     }
 
@@ -127,6 +194,7 @@ class ContactUs extends Component {
                     multiline
                     rows="4"
                     rowsMax="4"
+                    value={this.state.form.inquiry.value}
                     onChange={this.handleChange}
                     margin="normal"
                     variant="outlined"
@@ -145,14 +213,15 @@ class ContactUs extends Component {
             <div style={rowStyle}>
                 <TextField
                     label="City"
-                    name="city"                    
+                    name="city"        
+                    value={this.state.form.city.value}            
                     onChange={this.handleChange}
                     margin="normal"
                     variant="outlined"
                     helperText={this.state.form.city.errorMessage}
                     error={this.state.form.city.isInvalid}
                     required
-                    style={{bottom: 16}}
+                    style={{bottom: 16, width:213}}
                 />
                 {" "}
                 <FormControl required variant="outlined" error={this.state.form.states.isInvalid}>
@@ -162,10 +231,9 @@ class ContactUs extends Component {
                         value={this.state.form.states.value}
                         onChange={this.handleChange}
                         labelWidth={50}
-                        style={{width: 230}}
+                        style={{width: 213}}
                     >
                         <MenuItem value="">
-                            <em>None</em>
                         </MenuItem>
                         <MenuItem value={1}>Alabama</MenuItem>
                         <MenuItem value={2}>Alaska</MenuItem>
@@ -249,7 +317,8 @@ class ContactUs extends Component {
                     label="Budget ($)"
                     name="budget"
                     type="number"
-                    inputProps={{ min: "50", max: "1000", step: "10" }}
+                    inputProps={{ min: "50", max: "2500", step: "1" }}
+                    value={this.state.form.budget.value}
                     onChange={this.handleChange}
                     margin="normal"
                     variant="outlined"
@@ -269,7 +338,7 @@ class ContactUs extends Component {
                         style={{width: 130}}
                     >
                         <MenuItem value="">
-                            <em>None</em>
+                            <em></em>
                         </MenuItem>
                         <MenuItem value={1}>1 to 10</MenuItem>
                         <MenuItem value={2}>11 to 50</MenuItem>
@@ -289,7 +358,6 @@ class ContactUs extends Component {
                         style={{width: 160}}
                     >
                         <MenuItem value="">
-                            <em>None</em>
                         </MenuItem>
                         <MenuItem value={1}>Pasta Only</MenuItem>
                         <MenuItem value={2}>Pasta + Salad + Dessert</MenuItem>
@@ -306,9 +374,10 @@ class ContactUs extends Component {
                     rows="4"
                     rowsMax="4"
                     onChange={this.handleChange}
+                    value={this.state.form.instruction.value}
                     margin="normal"
                     variant="outlined"
-                    helperText={this.state.form.feedback.errorMessage}
+                    helperText={this.state.form.instruction.errorMessage}
                     error={this.state.form.feedback.isInvalid}
                     style={{width: 430}}
                 />
@@ -327,6 +396,7 @@ class ContactUs extends Component {
                     rows="4"
                     rowsMax="4"
                     onChange={this.handleChange}
+                    value={this.state.form.feedback.value}
                     margin="normal"
                     variant="outlined"
                     helperText={this.state.form.feedback.errorMessage}
@@ -341,6 +411,7 @@ class ContactUs extends Component {
     render() {
         const { form } = this.state;
         let subform;
+        console.log(form);
 
         if (form.subject.value === 1)  {
             subform = this.GeneralInquiry();
@@ -362,25 +433,28 @@ class ContactUs extends Component {
                     <div style={rowStyle}>
                         <TextField
                             label="Name"
-                            name="name"                    
+                            name="name"   
+                            value={form.name.value}                 
                             onChange={this.handleChange}
                             margin="normal"
                             variant="outlined"
                             helperText={form.name.errorMessage}
                             error={form.name.isInvalid}
                             required
+                            style={{float: 'none', width: 213}}
                         />
                         {" "}
                         <TextField
                             label="Email"
-                            name="email"                    
+                            name="email"   
+                            value={form.email.value}                                  
                             onChange={this.handleChange}
                             margin="normal"
                             variant="outlined"
                             helperText={form.email.errorMessage}
                             error={form.email.isInvalid}
                             required
-                            style={{width: 230}}
+                            style={{float: 'none', width: 213}}
                         />
                     </div>
                     <div style={rowStyle}>
@@ -394,7 +468,6 @@ class ContactUs extends Component {
                                 style={{width: 430}}
                             >
                                 <MenuItem value="">
-                                    <em>None</em>
                                 </MenuItem>
                                 <MenuItem value={1}>General Inquiry</MenuItem>
                                 <MenuItem value={2}>Suggestions and Feedbacks</MenuItem>
@@ -443,11 +516,9 @@ const textStyle = {
 
 const boxStyle = {
     //width: '80%',
-    width: '480px',
+    width: '500px',
     //height: '800px',
     paddingTop: 10,
-    panddingLeft: 10,
-    paddingRight: 10,
     paddingBottom: 20,
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
     resizeMode: "stretch",
@@ -456,7 +527,7 @@ const boxStyle = {
 }
 
 const rowStyle = {
-    float: 'left', 
+    //float: 'left', 
     marginLeft: 20,
 }
 
