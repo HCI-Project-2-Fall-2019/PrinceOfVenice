@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import background from '../images/bk_content.png';
 import pasta_salad_pic from "../images/menu_images/pasta_salad.jpg"
 import rucola_salad_pic from "../images/menu_images/rucola_salad.jpg"
 import spaghetti_alla_puttanesca_pic from "../images/menu_images/spaghetti_alla_puttanesca.jpg"
@@ -87,46 +86,33 @@ class OurMenu extends Component {
     render() {
 
         return (
-            <div style={backgroundStyle}>
-                <div style={{"padding": "40px 80px 0 80px"}}>
-                    <Paper>
-                        {DATA.map((category, index) => {
-                            return (
-                                <div key={index}>
-                                    <Typography style={{margin: "10px"}} align="left" variant="h3">{category.name}</Typography>
-                                    {Object.keys(category.items).map((itemIndex) => {
-                                        const item = category.items[itemIndex];
-                                        const booleanMapping = "item" + item.itemIndex;
-                                        return (
-                                            <ExpansionPanel key={itemIndex} expanded={this.state[booleanMapping]} onChange={() => this.handleChange(booleanMapping)}>
-                                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                                    <Typography>{item.name}</Typography>
-                                                    <Typography>{item.price}</Typography>
-                                                </ExpansionPanelSummary>
-                                                <ExpansionPanelDetails>
-                                                    <Typography>{"Ingredients: "+ item.ingredients}</Typography>
-                                                    <img src={item.img} height="100" width="100" alt={item.name}/>
-                                                </ExpansionPanelDetails>
-                                            </ExpansionPanel>
-                                        )
-                                    })}
-                                </div>
-                            )
-                        })}
-                    </Paper>
-                </div>
-            </div>         
+            <Paper>
+                {DATA.map((category, index) => {
+                    return (
+                        <div key={index}>
+                            <Typography style={{margin: "10px"}} align="left" variant="h3">{category.name}</Typography>
+                            {Object.keys(category.items).map((itemIndex) => {
+                                const item = category.items[itemIndex];
+                                const booleanMapping = "item" + item.itemIndex;
+                                return (
+                                    <ExpansionPanel key={itemIndex} expanded={this.state[booleanMapping]} onChange={() => this.handleChange(booleanMapping)}>
+                                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                            <Typography>{item.name}</Typography>
+                                            <Typography>{item.price}</Typography>
+                                        </ExpansionPanelSummary>
+                                        <ExpansionPanelDetails>
+                                            <Typography>{"Ingredients: "+ item.ingredients}</Typography>
+                                            <img src={item.img} height="100" width="100" alt={item.name}/>
+                                        </ExpansionPanelDetails>
+                                    </ExpansionPanel>
+                                )
+                            })}
+                        </div>
+                    )
+                })}
+            </Paper>
         );
     }
-}
-
-const backgroundStyle = {
-    height: 500,
-    backgroundPosition: 'center',
-    backgroundColor: '#22498a',
-    backgroundImage: "url(" + background + ")",
-    backgroundRepeat: 'no-repeat',
-    resizeMode: "stretch"
 }
 
 export default OurMenu;

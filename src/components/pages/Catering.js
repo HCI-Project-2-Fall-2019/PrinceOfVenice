@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import background from '../images/bk_content.png';
 import TextField from '@material-ui/core/TextField';
 import MuiPhoneNumber from "material-ui-phone-number";
 import { RegionDropdown } from 'react-country-region-selector';

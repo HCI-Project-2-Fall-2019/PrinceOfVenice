@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import background from '../images/bk_content.png';
 
 import Paper from "@material-ui/core/Paper";
 import { ViewState } from "@devexpress/dx-react-scheduler";
@@ -335,30 +334,18 @@ class FindOurTrucks extends Component {
     render() {
         const { data } = this.state;
 
-        return (  
-            <div style={backgroundStyle}>
-                <div style={{"padding": "40px 80px 0 80px"}}>
-                    <MuiThemeProvider theme={theme}>
-                        <Paper>
-                            <Scheduler data={data}>
-                                <ViewState currentDate="2018-06-28" />
-                                <WeekView startDayHour={9} endDayHour={19} />
-                                <Appointments appointmentComponent={Appointment} />
-                            </Scheduler>
-                        </Paper>
-                    </MuiThemeProvider>
-                </div>
-            </div>         
+        return (
+            <MuiThemeProvider theme={theme}>
+                <Paper>
+                    <Scheduler data={data}>
+                        <ViewState currentDate="2018-06-28" />
+                        <WeekView startDayHour={9} endDayHour={19} />
+                        <Appointments appointmentComponent={Appointment} />
+                    </Scheduler>
+                </Paper>
+            </MuiThemeProvider>
         );
     }
 }
-
-const backgroundStyle = {
-    backgroundPosition: 'center',
-    backgroundColor: '#22498a',
-    backgroundImage: "url(" + background + ")",
-    backgroundRepeat: 'no-repeat',
-    resizeMode: "stretch"
-};
 
 export default FindOurTrucks;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import background from '../images/bk_content.png';
 import { FormControl, TextField, Select, InputLabel, MenuItem, FormHelperText} from '@material-ui/core';
 import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker} from "@material-ui/pickers";
 import Button from '@material-ui/core/Button';
@@ -351,87 +350,74 @@ class ContactUs extends Component {
         }
 
         return (
-            <div style={backgroundStyle}>
-                <div style={titleStyle}> 
-                    CONTACT US
+            <form style={boxStyle} onSubmit={this.handleSubmit}>
+                <div style={textStyle}>
+                    Please use the form below to contact us.
                 </div>
-                <form style={boxStyle} onSubmit={this.handleSubmit}>
-                    <div style={textStyle}>
-                        Please use the form below to contact us.
-                    </div>
-                    <div style={rowStyle}>
-                        <TextField
-                            label="Name"
-                            name="name"                    
+                <div style={rowStyle}>
+                    <TextField
+                        label="Name"
+                        name="name"
+                        onChange={this.handleChange}
+                        margin="normal"
+                        variant="outlined"
+                        helperText={form.name.errorMessage}
+                        error={form.name.isInvalid}
+                        required
+                    />
+                    {" "}
+                    <TextField
+                        label="Email"
+                        name="email"
+                        onChange={this.handleChange}
+                        margin="normal"
+                        variant="outlined"
+                        helperText={form.email.errorMessage}
+                        error={form.email.isInvalid}
+                        required
+                        style={{width: 230}}
+                    />
+                </div>
+                <div style={rowStyle}>
+                    <FormControl required variant="outlined" error={form.subject.isInvalid}>
+                        <InputLabel>Subject</InputLabel>
+                        <Select
+                            name="subject"
+                            value={form.subject.value}
                             onChange={this.handleChange}
-                            margin="normal"
-                            variant="outlined"
-                            helperText={form.name.errorMessage}
-                            error={form.name.isInvalid}
-                            required
-                        />
-                        {" "}
-                        <TextField
-                            label="Email"
-                            name="email"                    
-                            onChange={this.handleChange}
-                            margin="normal"
-                            variant="outlined"
-                            helperText={form.email.errorMessage}
-                            error={form.email.isInvalid}
-                            required
-                            style={{width: 230}}
-                        />
-                    </div>
-                    <div style={rowStyle}>
-                        <FormControl required variant="outlined" error={form.subject.isInvalid}>
-                            <InputLabel>Subject</InputLabel>
-                            <Select
-                                name="subject"
-                                value={form.subject.value}
-                                onChange={this.handleChange}
-                                labelWidth={65}
-                                style={{width: 430}}
-                            >
-                                <MenuItem value="">
-                                    <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={1}>General Inquiry</MenuItem>
-                                <MenuItem value={2}>Suggestions and Feedbacks</MenuItem>
-                                <MenuItem value={3}>Catering</MenuItem>
-                            </Select>
-                            <FormHelperText>{form.subject.errorMessage}</FormHelperText>
-                        </FormControl>
-                    </div>  
-                    {subform}
-                    <Button
-                        label="Submit" 
-                        type="submit"
-                        style={submitButtonStyle}> Submit 
-                    </Button>                  
-                </form>
-            </div>
+                            labelWidth={65}
+                            style={{width: 430}}
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={1}>General Inquiry</MenuItem>
+                            <MenuItem value={2}>Suggestions and Feedbacks</MenuItem>
+                            <MenuItem value={3}>Catering</MenuItem>
+                        </Select>
+                        <FormHelperText>{form.subject.errorMessage}</FormHelperText>
+                    </FormControl>
+                </div>
+                {subform}
+                <Button
+                    label="Submit"
+                    type="submit"
+                    style={submitButtonStyle}> Submit
+                </Button>
+            </form>
+
         );
     }
 }
 
-const backgroundStyle = {
-    height: 700,
-    backgroundPosition: 'center',
-    backgroundColor: '#22498a',
-    backgroundImage: "url(" + background + ")",
-    backgroundRepeat: 'no-repeat',
-    resizeMode: "stretch"
-}
-
-const titleStyle = {
-    fontSize: 30,
-    //fontFamily: 'CenturyGothic',
-    textAlign: 'center',
-    color: '#fff',
-    paddingTop: 20,
-    paddingBottom: 10
-}
+// const titleStyle = {
+//     fontSize: 30,
+//     //fontFamily: 'CenturyGothic',
+//     textAlign: 'center',
+//     color: '#fff',
+//     paddingTop: 20,
+//     paddingBottom: 10
+// }
 
 const textStyle = {
     fontSize: 22,
@@ -439,30 +425,28 @@ const textStyle = {
     margin: 10,
     paddingTop: 15,
     textAlign: 'center'
-}
+};
 
 const boxStyle = {
-    //width: '80%',
     width: '480px',
-    //height: '800px',
     paddingTop: 10,
     panddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: 'rgba(255, 255, 255, 1)',
     resizeMode: "stretch",
     borderRadius: 10,
     margin: "auto"
-}
+};
 
 const rowStyle = {
     float: 'left', 
     marginLeft: 20,
-}
+};
 
 const submitButtonStyle = {
     color: '#fff',
     backgroundColor: 'rgba(34,73,138, 0.8)',
-}
+};
 
 export default ContactUs;
