@@ -14,6 +14,7 @@ import FAQs from './pages/FAQs';
 import List from '@material-ui/core/List';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { SnackbarProvider } from 'notistack';
 
 class Navbar extends Component {
     render() {
@@ -31,6 +32,7 @@ class Navbar extends Component {
                         </ButtonGroup>
                     </List>
                 </div>
+                <SnackbarProvider>
                 <div className="Content">
                     <div className="Content-Component" style={contentBackgroundStyle}>
                         <div style={{"padding": "40px 80px 0 80px"}}>
@@ -49,6 +51,7 @@ class Navbar extends Component {
                     <div className="Content-Footer" style={footerBackgroundStyle}>
                     </div>
                 </div>
+                </SnackbarProvider>
             </Router>      
         );
     }
