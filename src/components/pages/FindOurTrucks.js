@@ -337,7 +337,7 @@ class FindOurTrucks extends Component {
 
         return (  
             <div style={backgroundStyle}>
-                <div style={{"padding": "40px 40px 0 40px"}}>
+                <div style={{"padding": "40px 80px 0 80px"}}>
                     <MuiThemeProvider theme={theme}>
                         <Paper>
                             <Scheduler data={data}>
