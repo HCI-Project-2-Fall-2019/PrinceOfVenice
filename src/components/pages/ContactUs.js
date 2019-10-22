@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormControl, TextField, Select, InputLabel, MenuItem, FormHelperText} from '@material-ui/core';
 import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker} from "@material-ui/pickers";
+import { withSnackbar } from 'notistack';
 import Button from '@material-ui/core/Button';
 import MomentUtils from "@date-io/moment";
 
@@ -65,7 +66,8 @@ class ContactUs extends Component {
                     errorMessage: ''
                 },
                 time: null,
-                date: null
+                date: null,
+                validForm: false,
             }
         };
         this.handleChange = this.handleChange.bind(this);
@@ -93,7 +95,126 @@ class ContactUs extends Component {
     }
 
     validate (evt) {
-        alert("Validating");
+        var valid = true;
+        
+        var nameInvalid = false;
+        var nameErrorMessage = '';
+        var emailInvalid = false;
+        var emailErrorMessage = '';
+        var subjectInvalid = false;
+        var subjectErrorMessage = '';
+
+        var inquiryInvalid = false;
+        var inquiryErrorMessage = '';
+        var feedbackInvalid = false;
+        var feedbackErrorMessage = '';
+
+        var cityInvalid = false;
+        var cityErrorMessage = '';
+        var statesInvalid = false;
+        var statesErrorMessage = '';
+
+        var nameRegEx = /^[a-zA-Z\s]*$/;  
+        if (!nameRegEx.test(this.state.form.name.value)) {
+            valid = false;
+            nameInvalid = true;
+            nameErrorMessage = 'Please Input a Valid Name';
+        } else if (this.state.form.name.value.trim() === '') {
+            valid = false;
+            nameInvalid = true;
+            nameErrorMessage = 'Please Input a Name';
+        }
+
+        var emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (!emailRegEx.test(this.state.form.email.value)) {
+            valid = false;
+            emailInvalid = true;
+            emailErrorMessage = 'Please Input a Valid Email Address';
+        }
+
+        if(this.state.form.subject.value === '') {
+            valid = false;
+            subjectInvalid = true;
+            subjectErrorMessage = 'Please Select a Subject';
+        } else if(this.state.form.subject.value === 1) {
+            if (this.state.form.inquiry.value.trim() === '') {
+                valid = false;
+                inquiryInvalid = true;
+                inquiryErrorMessage = 'Please Input Your Inquiry';
+            }
+        } else if(this.state.form.subject.value === 2) {
+            if (this.state.form.feedback.value.trim() === '') {
+                valid = false;
+                feedbackInvalid = true;
+                feedbackErrorMessage = 'Please Input Your Feedback';
+            }
+        } else if(this.state.form.subject.value === 3) { 
+            if (!nameRegEx.test(this.state.form.city.value)) {
+                valid = false;
+                cityInvalid = true;
+                cityErrorMessage = 'Please Input a Valid City';
+            } else if (this.state.form.city.value.trim() === '') {
+                valid = false;
+                cityInvalid = true;
+                cityErrorMessage = 'Please Input a City';
+            }
+
+            if(this.state.form.states.value === '') {
+                valid = false;
+                statesInvalid = true;
+                statesErrorMessage = 'Please Select a State';
+            }
+        }
+
+        this.setState({ 
+            form: {
+                ...this.state.form, 
+                name: {
+                    ...this.state.form.name,
+                    isInvalid: nameInvalid,
+                    errorMessage: nameErrorMessage
+                },
+                email: {
+                    ...this.state.form.email,
+                    isInvalid: emailInvalid,
+                    errorMessage: emailErrorMessage
+                },
+                subject: {
+                    ...this.state.form.subject,
+                    isInvalid: subjectInvalid,
+                    errorMessage: subjectErrorMessage
+                },
+                inquiry: {
+                    ...this.state.form.inquiry,
+                    isInvalid: inquiryInvalid,
+                    errorMessage: inquiryErrorMessage
+                },
+                feedback: {
+                    ...this.state.form.feedback,
+                    isInvalid: feedbackInvalid,
+                    errorMessage: feedbackErrorMessage
+                },
+                states: {
+                    ...this.state.form.states,
+                    isInvalid: statesInvalid,
+                    errorMessage: statesErrorMessage
+                },
+                city: {
+                    ...this.state.form.city,
+                    isInvalid: cityInvalid,
+                    errorMessage: cityErrorMessage
+                },
+                validForm: {valid}
+            }, 
+        },() => {
+                if(valid) {
+                    this.clearForm();
+                    this.props.enqueueSnackbar('Message Sent Successfully', { 
+                        variant: 'success',
+                    });                    
+                }
+            }
+        );
     }
 
     clearForm (evt) {
@@ -154,16 +275,12 @@ class ContactUs extends Component {
                 date: null
             }
         })
+        //}
     }
 
     handleSubmit (evt) {
-        //Function to validate (inside will modify isInvalid and errorMessage)
-        //Function to clear state if validated success
-        //Function to produce snackbar if validated success
         evt.preventDefault();
         this.validate();
-        this.clearForm();
-        alert("Submitted!");
     }
 
     handleDateChange(val) {
@@ -376,8 +493,8 @@ class ContactUs extends Component {
                         value={this.state.form.instruction.value}
                         margin="normal"
                         variant="outlined"
-                        helperText={this.state.form.instruction.errorMessage}
-                        error={this.state.form.feedback.isInvalid}
+                        //helperText={this.state.form.instruction.errorMessage}
+                        //error={this.state.form.instruction.isInvalid}
                         style={{width: 430}}
                     />
                 </div>
@@ -409,8 +526,8 @@ class ContactUs extends Component {
 
     render() {
         const { form } = this.state;
+
         let subform;
-        console.log(form);
 
         if (form.subject.value === 1)  {
             subform = this.GeneralInquiry();
@@ -497,7 +614,7 @@ const boxStyle = {
     paddingTop: 10,
     paddingBottom: 20,
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    resizeMode: "stretch",
+    //resizeMode: "stretch",
     borderRadius: 10,
     margin: "auto"
 };
@@ -512,4 +629,4 @@ const submitButtonStyle = {
     backgroundColor: 'rgba(34,73,138, 0.8)',
 };
 
-export default ContactUs;
+export default withSnackbar(ContactUs);
