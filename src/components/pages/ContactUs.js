@@ -164,6 +164,14 @@ class ContactUs extends Component {
                 statesInvalid = true;
                 statesErrorMessage = 'Please Select a State';
             }
+
+            if(this.state.form.date != null) {
+                valid = this.state.form.date._isValid && valid
+            }
+    
+            if(this.state.form.time != null) {
+                valid = this.state.form.time._isValid && valid
+            }
         }
 
         this.setState({ 
@@ -432,6 +440,7 @@ class ContactUs extends Component {
                     <TextField
                         label="Budget ($)"
                         name="budget"
+                        placeholder="50"
                         type="number"
                         inputProps={{ min: "50", max: "2500", step: "1" }}
                         value={this.state.form.budget.value}
@@ -546,6 +555,7 @@ class ContactUs extends Component {
                     <TextField
                         label="Name"
                         name="name"
+                        placeholder="John Smith"
                         value={form.name.value}
                         onChange={this.handleChange}
                         margin="normal"
@@ -559,6 +569,7 @@ class ContactUs extends Component {
                     <TextField
                         label="Email"
                         name="email"
+                        placeholder="email@address.com"
                         value={form.email.value}
                         onChange={this.handleChange}
                         margin="normal"
