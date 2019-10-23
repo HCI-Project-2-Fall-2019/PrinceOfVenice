@@ -18,13 +18,13 @@ class AboutUs extends Component {
                     margin: "auto"
                 }}>
                     <div>
-                        <img src={pic1} style={{float: 'right', width: '310px', padding:5, borderRadius:10}}/>
+                        <img src={pic1} alt="" style={{float: 'right', width: '310px', padding:5, borderRadius:10}}/>
                         <p style={{fontSize: 20, textAlign: 'left'}}>
                             While L.A.’s food truck movement is expansive, having grown beyond hipster cuisine, Prince Emanuele Filiberto took the opportunity to flavor it with regional recipes from his homeland. “After discovering the L.A. food trucks,” says Prince Emanuele, “I saw a need for high-quality Italian food [made] with fresh handmade pasta, and sauces. I also desired [to provide] a great customer experience.” One that was new, a purveyor preparing pasta with top-quality on the spot. “The idea was to have the best ingredients from Italy and Southern California, locally sourced organic vegetables, cage-free eggs, and free-range meats from California farms, paired with Italian flour, olive oils, and truffles.”
                         </p>
                     </div>
                     <div>
-                        <img src={pic2} style={{float: 'left', width: '310px', padding:5, borderRadius:10}}/>
+                        <img src={pic2} alt="" style={{float: 'left', width: '310px', padding:5, borderRadius:10}}/>
                         <p style={{fontSize: 20, textAlign: 'left'}}>
                             The menu, which is quite vast, changes seasonally to offer the freshest recipes representing the various regions of Italy, all prepared per patron. “We want the customer to discover the many different regions of Italy through our dishes,” states Prince Emanuele. Crowd favorites include Tartufo made with fresh black truffles and house-made truffle butter, and the refreshingly lite Spaghetti de Limone with lemon and spicy red pepper flakes for the perfect finish. Meat lovers get their comfort-food fill with the Maccheroni alla Bolognese, while vegetarians nosh on Conchiglie alla Norma made with farm-fresh eggplant, heirloom tomatoes, basil and shaved ricotta cheese. Staying true to the convenience of fast-casual food truck cuisine, these lightweight pastas cook in minutes.                        
                         </p>
@@ -35,7 +35,7 @@ class AboutUs extends Component {
                         </p>
                     </div>
                     <div>
-                        <img src={pic3} style={{float: 'right', width: '310px', padding:5, borderRadius:10}}/>
+                        <img src={pic3} alt="" style={{float: 'right', width: '310px', padding:5, borderRadius:10}}/>
                         <p style={{fontSize: 20, textAlign: 'left'}}>
                             The brick-and-mortar restaurant will offer a broader menu and include a visible pasta lab, delivery and food truck services. “My business partner, [Paolo Lasagna, longtime Italian catering services entrepreneur] and I desire for the Prince of Venice to become the brand associated with fresh handmade pasta and sauces here in the USA,” explains Prince Emanuele.
                         </p>
@@ -50,13 +50,13 @@ class AboutUs extends Component {
                         <h2> PRINCE OF VENICE PARTNERS </h2>
                     </div>
                     <div>
-                        <img src={pic4} style={{float: 'left', padding:5, borderRadius:10}}/>
+                        <img src={pic4} alt="" style={{float: 'left', padding:5, borderRadius:10}}/>
                         <p style={{fontSize: 20, textAlign: 'left'}}>
                             <strong>Emanuele Filiberto di Savoia</strong> is an entrepreneur, producer, writer, novelist and philanthropist. The grandson of Umberto II, the last reigning king of Italy, who was deposed in 1946, Emanuele Filiberto spent his first 30 years exiled in Switzerland until a change in Italian law allowed the would-be Crown Prince to visit Italy in 2002. A former international banker and hedge fund manager, Emanuele Filiberto segued into entertainment initially as a soccer commentator, then other roles as a television host and presenter. Winning Italy’s version of “Dancing with the Stars” in 2009, and becoming the only male contestant ever to win, and by an overwhelming margin, Emanuele Filiberto develops and produces television shows and international movies through his production company, AristoCrazy, and more recently launched his own luxury fashion brand, PrinceTees. Active in charity through his Prince of Venice Foundation and Emanuele Filiberto Charity Fund Foundation, Emanuele Filiberto is married to award-winning French actress Clotilde Courau.
                         </p>
                     </div>
                     <div>
-                        <img src={pic5} style={{float: 'left', padding:5, borderRadius:10}}/>
+                        <img src={pic5} alt="" style={{float: 'left', padding:5, borderRadius:10}}/>
                         <p style={{fontSize: 20, textAlign: 'left'}}>
                             <strong>Paolo Lasagna di Montemagno</strong> is an entrepreneur in the field of Contract Catering and of Catering Services since 1994.
                             Born in Asti (Piedmont, Italy), began his career since the "First Steps" with his father Silvio, who always took care of Catering.
@@ -65,7 +65,7 @@ class AboutUs extends Component {
                         </p>
                     </div>
                     <div>
-                        <img src={pic6} style={{maxWidth:'100%', borderRadius:10}}/>
+                        <img src={pic6} alt="" style={{maxWidth:'100%', borderRadius:10}}/>
                     </div>
                 </div>
             </div>         

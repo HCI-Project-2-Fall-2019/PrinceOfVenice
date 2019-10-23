@@ -325,7 +325,7 @@ class ContactUs extends Component {
                     helperText={this.state.form.inquiry.errorMessage}
                     error={this.state.form.inquiry.isInvalid}
                     required
-                    style={{width: 430}}
+                    style={{width: "91%"}}
                 />
             </div>
         )
@@ -345,17 +345,17 @@ class ContactUs extends Component {
                         helperText={this.state.form.city.errorMessage}
                         error={this.state.form.city.isInvalid}
                         required
-                        style={{bottom: 16, width:213}}
+                        style={{bottom: 16, width: "45%"}}
                     />
                     {" "}
-                    <FormControl required variant="outlined" error={this.state.form.states.isInvalid}>
+                    <FormControl required variant="outlined" error={this.state.form.states.isInvalid} 
+                        style={{width: "45%"}}>
                         <InputLabel>State</InputLabel>
                         <Select
                             name="states"
                             value={this.state.form.states.value}
                             onChange={this.handleChange}
                             labelWidth={50}
-                            style={{width: 213}}
                         >
                             <MenuItem value="">
                             </MenuItem>
@@ -423,7 +423,7 @@ class ContactUs extends Component {
                             onChange={(val) => this.handleDateChange(val)}
                             animateYearScrolling={false}
                             autoOk={true}
-                            style={{width: 195, paddingBottom:20}}
+                            style={{width: "45%", paddingBottom:20}}
                         />
                     </MuiPickersUtilsProvider>
                     {' '}
@@ -432,7 +432,7 @@ class ContactUs extends Component {
                             placeholder="02:00 PM"
                             value={this.state.form.time}
                             onChange={(val) => this.handleTimeChange(val)}
-                            style={{width: 230, paddingBottom:20}}
+                            style={{width: "45%", paddingBottom:20}}
                         />
                     </MuiPickersUtilsProvider>
                 </div>
@@ -450,17 +450,17 @@ class ContactUs extends Component {
                         //helperText={this.state.form.budget.errorMessage}
                         //error={this.state.form.budget.isInvalid}
                         //required
-                        style={{width: 130, bottom: 16}}
+                        style={{width: "27%", bottom: 16}}
                     />
                     {' '}
-                    <FormControl variant="outlined" error={this.state.form.servings.isInvalid}>
+                    <FormControl variant="outlined" error={this.state.form.servings.isInvalid}
+                            style={{width: "27%"}}                            >
                         <InputLabel>Servings</InputLabel>
                         <Select
                             name="servings"
                             value={this.state.form.servings.value}
                             onChange={this.handleChange}
                             labelWidth={60}
-                            style={{width: 130}}
                         >
                             <MenuItem value="">
                                 <em></em>
@@ -473,14 +473,14 @@ class ContactUs extends Component {
                         <FormHelperText>{this.state.form.servings.errorMessage}</FormHelperText>
                     </FormControl>
                     {' '}
-                    <FormControl variant="outlined" error={this.state.form.food.isInvalid}>
+                    <FormControl variant="outlined" error={this.state.form.food.isInvalid}
+                        style={{width: "36%"}}>
                         <InputLabel>Food Choice</InputLabel>
                         <Select
                             name="food"
                             value={this.state.form.food.value}
                             onChange={this.handleChange}
                             labelWidth={100}
-                            style={{width: 160}}
                         >
                             <MenuItem value="">
                             </MenuItem>
@@ -504,7 +504,7 @@ class ContactUs extends Component {
                         variant="outlined"
                         //helperText={this.state.form.instruction.errorMessage}
                         //error={this.state.form.instruction.isInvalid}
-                        style={{width: 430}}
+                        style={{width: "91%"}}
                     />
                 </div>
             </div>
@@ -527,7 +527,7 @@ class ContactUs extends Component {
                     helperText={this.state.form.feedback.errorMessage}
                     error={this.state.form.feedback.isInvalid}
                     required
-                    style={{width: 430}}
+                    style={{width: "91%"}}
                 />
             </div>
         )
@@ -563,7 +563,7 @@ class ContactUs extends Component {
                         helperText={form.name.errorMessage}
                         error={form.name.isInvalid}
                         required
-                        style={{float: 'none', width: 213}}
+                        style={{width: "45%"}}
                     />
                     {" "}
                     <TextField
@@ -577,18 +577,18 @@ class ContactUs extends Component {
                         helperText={form.email.errorMessage}
                         error={form.email.isInvalid}
                         required
-                        style={{float: 'none', width: 213}}
+                        style={{width: "45%"}}
                     />
                 </div>
                 <div style={rowStyle}>
-                    <FormControl required variant="outlined" error={form.subject.isInvalid}>
+                    <FormControl required variant="outlined" error={form.subject.isInvalid}
+                        style={{width: "91%"}}>
                         <InputLabel>Subject</InputLabel>
                         <Select
                             name="subject"
                             value={form.subject.value}
                             onChange={this.handleChange}
                             labelWidth={65}
-                            style={{width: 430}}
                         >
                             <MenuItem value="">
                             </MenuItem>
@@ -619,20 +619,18 @@ const textStyle = {
 };
 
 const boxStyle = {
-    //width: '80%',
-    width: '500px',
-    //height: '800px',
+    width: '600px',
+    maxWidth: '100%',
     paddingTop: 10,
     paddingBottom: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    //resizeMode: "stretch",
+    backgroundColor: 'rgba(255, 255, 255)',
     borderRadius: 10,
-    margin: "auto"
+    margin: "auto",
 };
 
 const rowStyle = {
     //float: 'left',
-    marginLeft: 20,
+    //marginLeft: 20,
 };
 
 const submitButtonStyle = {

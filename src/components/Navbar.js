@@ -25,7 +25,7 @@ class Navbar extends Component {
                         <ButtonGroup variant="text" color="primary" size="large" aria-label="large contained secondary button group">
                         <Link to={'/LocateUs'} style={linkStyle}><Button style={menuStyle}>LOCATE Us</Button></Link> 
                         <Link to={'/Menu'} style={linkStyle}><Button style={menuStyle}>MENU</Button></Link> 
-                        <Link to={'/Media'} style={linkStyle}><Button style={menuStyle}>MEDIA</Button></Link>
+                        <Link to={'/Media/GalleryThree'} style={linkStyle}><Button style={menuStyle}>MEDIA</Button></Link>
                         <Link to={'/AboutUs'} style={linkStyle}><Button style={menuStyle}>ABOUT US</Button></Link> 
                         <Link to={'/ContactUs'} style={linkStyle}><Button style={menuStyle}>CONTACT US</Button></Link>
                         <Link to={'/FAQs'} style={linkStyle}><Button style={menuStyle}>FAQs</Button></Link> 
