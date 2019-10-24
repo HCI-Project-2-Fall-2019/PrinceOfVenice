@@ -60,15 +60,21 @@ class Media extends Component {
                             onChange={this.handleChange}
                             aria-label="Vertical tabs example"
                             //className={classes.tabs}
-                            style={{backgroundColor:"lightgrey", height: 402, width: "20%", float:"left", 
+                            style={{backgroundColor:"lightgrey", height: 602, width: "20%", float:"left", 
                                 borderRadius: "0px 0px 0px 5px"}}
                         >
-                            <Tab label="Gallery One" component={Link} to="/Media/GalleryOne"/>
-                            <Tab label="Gallery Two" component={Link} to="/Media/GalleryTwo"/>
-                            <Tab label="Foods" component={Link} to="/Media/Foods"/>
-                            <Tab label="Ingredients" component={Link} to="/Media/Ingredient"/>
-                            <Tab label="Truck" component={Link} to="/Media/Truck"/>
-                            <Tab label="Cooking" component={Link} to="/Media/Cooking"/>
+                            <Tab label="Gallery One" component={Link} to="/Media/GalleryOne"
+                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                            <Tab label="Gallery Two" component={Link} to="/Media/GalleryTwo"
+                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                            <Tab label="Foods" component={Link} to="/Media/Foods"
+                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                            <Tab label="Ingredients" component={Link} to="/Media/Ingredient"
+                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                            <Tab label="Truck" component={Link} to="/Media/Truck"
+                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                            <Tab label="Cooking" component={Link} to="/Media/Cooking"
+                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
                         </Tabs>
                         <Switch style={{width: "50%"}}>
                             <Route path="/Media/GalleryOne" component={GalleryOne} />

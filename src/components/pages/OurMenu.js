@@ -248,19 +248,19 @@ class OurMenu extends Component {
                 {DATA.map((category, index) => {
                     return (
                         <div key={index}>
-                            <Typography style={{margin: "10px"}} align="left" variant="h3">{category.name}</Typography>
+                            <Typography style={{margin: "0px 10px 10px 10px"}} align="left" variant="h3">{category.name}</Typography>
                             {Object.keys(category.items).map((itemIndex) => {
                                 const item = category.items[itemIndex];
                                 const booleanMapping = "item" + item.itemIndex;
                                 return (
                                     <ExpansionPanel key={itemIndex} expanded={this.state[booleanMapping]} onChange={() => this.handleChange(booleanMapping)}>
                                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                            <Typography>{item.name}</Typography>
+                                            <Typography style={{width:"65%", textAlign:"left"}}>{item.name}</Typography>
                                             <Typography>{item.price}</Typography>
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
-                                            <Typography>{"Ingredients: "+ item.ingredients}</Typography>
                                             <img src={item.img} height="100" width="100" alt={item.name}/>
+                                            <Typography style={{marginLeft: 20, textAlign:"left"}}>{"Ingredients: "+ item.ingredients}</Typography>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
                                 )

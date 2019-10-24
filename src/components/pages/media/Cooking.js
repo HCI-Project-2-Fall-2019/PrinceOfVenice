@@ -77,7 +77,7 @@ const tileData = [
 class Cooking extends Component {
     render() {
         return (  
-                <GridList cellHeight={250} cols={4} style={{width: "79%", height: 400, border: "1px gray solid "}}>
+                <GridList cellHeight={250} cols={4} style={{width: "79%", height: 600, border: "1px gray solid "}}>
                     {tileData.map(tile => (
                     <GridListTile key={tile.img} cols={tile.cols || 1}>
                         <img src={tile.img} alt={tile.title} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormControl, TextField, Select, InputLabel, MenuItem, FormHelperText} from '@material-ui/core';
+import { FormControl, TextField, Select, InputLabel, MenuItem, FormHelperText, InputAdornment, Input} from '@material-ui/core';
 import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker} from "@material-ui/pickers";
 import { withSnackbar } from 'notistack';
 import Button from '@material-ui/core/Button';
@@ -114,6 +114,9 @@ class ContactUs extends Component {
         var statesInvalid = false;
         var statesErrorMessage = '';
 
+        var budgetInvalid = false;
+        var budgetErrorMessage = '';
+
         var nameRegEx = /^[a-zA-Z\s]*$/;  
         if (!nameRegEx.test(this.state.form.name.value)) {
             valid = false;
@@ -172,6 +175,15 @@ class ContactUs extends Component {
             if(this.state.form.time != null) {
                 valid = this.state.form.time._isValid && valid
             }
+
+            if(this.state.form.budget.value !== '') {
+                var numberRegex = /^\d+$/;                ;
+                if(!numberRegex.test(this.state.form.budget.value)) {
+                    valid = false;
+                    budgetInvalid = true;
+                    budgetErrorMessage = "Please Input a Valid Budget"
+                }
+            }
         }
 
         this.setState({ 
@@ -211,6 +223,11 @@ class ContactUs extends Component {
                     ...this.state.form.city,
                     isInvalid: cityInvalid,
                     errorMessage: cityErrorMessage
+                },
+                budget: {
+                    ...this.state.form.budget,
+                    isInvalid: budgetInvalid,
+                    errorMessage: budgetErrorMessage
                 },
                 validForm: {valid}
             }, 
@@ -332,6 +349,14 @@ class ContactUs extends Component {
     }
 
     Catering () {
+        let budgetField
+        if(this.state.form.budget.isInvalid === false) {
+            budgetField = okBudget;
+        }
+        else {
+            budgetField = errorBudget;         
+        }
+
         return(
             <div>
                 <div style={rowStyle}>
@@ -437,21 +462,19 @@ class ContactUs extends Component {
                     </MuiPickersUtilsProvider>
                 </div>
                 <div style={rowStyle}>
-                    <TextField
-                        label="Budget ($)"
-                        name="budget"
-                        placeholder="50"
-                        type="number"
-                        inputProps={{ min: "50", max: "2500", step: "1" }}
-                        value={this.state.form.budget.value}
-                        onChange={this.handleChange}
-                        margin="normal"
-                        variant="outlined"
-                        //helperText={this.state.form.budget.errorMessage}
-                        //error={this.state.form.budget.isInvalid}
-                        //required
-                        style={{width: "27%", bottom: 16}}
-                    />
+                    <FormControl variant="outlined" error={this.state.form.budget.isInvalid}
+                            style={budgetField}                            >
+                        <InputLabel style={{backgroundColor: "white", paddingLeft:5, paddingRight:5}}>Budget</InputLabel>
+                        <Input
+                            name="budget"
+                            placeholder="50"
+                            value={this.state.form.budget.value}
+                            onChange={this.handleChange}
+                            disableUnderline={true}
+                            startAdornment={<InputAdornment position="start" style={{paddingLeft:"3px", marginRight:"5px"}}>$</InputAdornment>}
+                        />
+                        <FormHelperText>{this.state.form.budget.errorMessage}</FormHelperText>
+                    </FormControl>
                     {' '}
                     <FormControl variant="outlined" error={this.state.form.servings.isInvalid}
                             style={{width: "27%"}}                            >
@@ -534,8 +557,8 @@ class ContactUs extends Component {
     }
 
     render() {
+        console.log(this.state.form)
         const { form } = this.state;
-
         let subform;
 
         if (form.subject.value === 1)  {
@@ -632,6 +655,20 @@ const rowStyle = {
     //float: 'left',
     //marginLeft: 20,
 };
+
+const okBudget = {
+    width: "27%", 
+    height: "54px", 
+    border: "1px solid lightgrey", 
+    borderRadius: "4px"
+}
+
+const errorBudget = {
+    width: "27%", 
+    height: "54px", 
+    border: "1px solid red", 
+    borderRadius: "4px"
+}
 
 const submitButtonStyle = {
     color: '#fff',
