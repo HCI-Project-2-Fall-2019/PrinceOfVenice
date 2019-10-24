@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import pic1 from "./foodimages/0.jpg"
-import pic2 from "./foodimages/1.jpg"
-import pic3 from "./foodimages/2.jpg"
-import pic4 from "./foodimages/3.jpg"
-import pic5 from "./foodimages/4.jpg"
-import pic6 from "./foodimages/5.jpg"
-import pic7 from "./foodimages/6.jpg"
-import pic8 from "./foodimages/7.jpg"
-import pic9 from "./foodimages/8.jpg"
-import pic10 from "./foodimages/9.jpg"
-import pic11 from "./foodimages/10.jpg"
-import pic12 from "./foodimages/11.jpg"
-import pic13 from "./foodimages/12.jpg"
-import pic14 from "./foodimages/14.jpg"
+import pic1 from "./gallery2/0.jpeg"
+import pic2 from "./gallery2/1.jpeg"
+import pic3 from "./gallery2/2.jpeg"
+import pic4 from "./gallery2/3.jpeg"
+import pic5 from "./gallery2/4.jpeg"
+import pic6 from "./gallery2/5.jpeg"
+import pic7 from "./gallery2/6.jpeg"
+import pic8 from "./gallery2/7.jpeg"
+import pic9 from "./gallery2/8.jpeg"
+import pic10 from "./gallery2/9.jpg"
+import pic11 from "./gallery2/10.jpg"
+import pic12 from "./gallery2/11.jpg"
 
 const tileData = [
     {   
@@ -75,34 +73,22 @@ const tileData = [
         img: pic10,
         title: 'Image',
         author: 'author',
-        cols: 1,
+        cols: 2,
     },
     {   
         img: pic11,
         title: 'Image',
         author: 'author',
-        cols: 1,
+        cols: 2,
     },
     {   
         img: pic12,
         title: 'Image',
         author: 'author',
-        cols: 1,
-    },
-    {   
-        img: pic13,
-        title: 'Image',
-        author: 'author',
         cols: 2,
     },
-    {   
-        img: pic14,
-        title: 'Image',
-        author: 'author',
-        cols: 1,
-    },
 ]
-class Food extends Component {
+class GalleryTwo extends Component {
     render() {
         return (  
                 <GridList cellHeight={250} cols={4} style={{width: "79%", height: 400, border: "1px gray solid "}}>
@@ -116,4 +102,4 @@ class Food extends Component {
     }
 }
 
-export default Food;
+export default GalleryTwo;

@@ -4,8 +4,12 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import GalleryOne from './media/GalleryOne';
+import GalleryTwo from './media/GalleryTwo';
 import Food from './media/Food';
 import Ingredient from './media/Ingredient';
+import Truck from './media/Truck';
+import Cooking from './media/Cooking';
 
 class Media extends Component {
     constructor (props) {
@@ -61,18 +65,18 @@ class Media extends Component {
                         >
                             <Tab label="Gallery One" component={Link} to="/Media/GalleryOne"/>
                             <Tab label="Gallery Two" component={Link} to="/Media/GalleryTwo"/>
-                            <Tab label="Foods" component={Link} to="/Media/GalleryThree"/>
-                            <Tab label="Ingredients" component={Link} to="/Media/GalleryFour"/>
-                            <Tab label="Truck" component={Link} to="/Media/GalleryFive"/>
-                            <Tab label="Cooking" component={Link} to="/Media/GallerySix"/>
+                            <Tab label="Foods" component={Link} to="/Media/Foods"/>
+                            <Tab label="Ingredients" component={Link} to="/Media/Ingredient"/>
+                            <Tab label="Truck" component={Link} to="/Media/Truck"/>
+                            <Tab label="Cooking" component={Link} to="/Media/Cooking"/>
                         </Tabs>
                         <Switch style={{width: "50%"}}>
-                            <Route path="/Media/GalleryOne" component={FacebookIcon} />
-                            <Route path="/Media/GalleryTwo" component={TwitterIcon} />
-                            <Route path="/Media/GalleryThree" component={Food} />
-                            <Route path="/Media/GalleryFour" component={Ingredient} />
-                            <Route path="/Media/GalleryFive" component={TwitterIcon} />
-                            <Route path="/Media/GallerySix" component={TwitterIcon} />
+                            <Route path="/Media/GalleryOne" component={GalleryOne} />
+                            <Route path="/Media/GalleryTwo" component={GalleryTwo} />
+                            <Route path="/Media/Food" component={Food} />
+                            <Route path="/Media/Ingredient" component={Ingredient} />
+                            <Route path="/Media/Truck" component={Truck} />
+                            <Route path="/Media/Cooking" component={Cooking} />
                             <Route path="/Media" component={Food} />
                         </Switch>
                     </Router>

@@ -1,30 +1,20 @@
 import React, { Component } from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import pic1 from "./foodimages/0.jpg"
-import pic2 from "./foodimages/1.jpg"
-import pic3 from "./foodimages/2.jpg"
-import pic4 from "./foodimages/3.jpg"
-import pic5 from "./foodimages/4.jpg"
-import pic6 from "./foodimages/5.jpg"
-import pic7 from "./foodimages/6.jpg"
-import pic8 from "./foodimages/7.jpg"
-import pic9 from "./foodimages/8.jpg"
-import pic10 from "./foodimages/9.jpg"
-import pic11 from "./foodimages/10.jpg"
-import pic12 from "./foodimages/11.jpg"
-import pic13 from "./foodimages/12.jpg"
-import pic14 from "./foodimages/14.jpg"
+import pic1 from "./truckimages/0.jpg"
+import pic3 from "./truckimages/2.jpg"
+import pic4 from "./truckimages/3.jpg"
+import pic5 from "./truckimages/4.jpg"
+import pic6 from "./truckimages/5.jpg"
+import pic7 from "./truckimages/6.jpg"
+import pic8 from "./truckimages/7.jpg"
+import pic9 from "./truckimages/8.jpg"
+import pic10 from "./truckimages/9.jpg"
+import pic11 from "./truckimages/10.jpg"
 
 const tileData = [
     {   
         img: pic1,
-        title: 'Image',
-        author: 'author',
-        cols: 1,
-    },
-    {   
-        img: pic2,
         title: 'Image',
         author: 'author',
         cols: 1,
@@ -75,7 +65,7 @@ const tileData = [
         img: pic10,
         title: 'Image',
         author: 'author',
-        cols: 1,
+        cols: 2,
     },
     {   
         img: pic11,
@@ -83,26 +73,8 @@ const tileData = [
         author: 'author',
         cols: 1,
     },
-    {   
-        img: pic12,
-        title: 'Image',
-        author: 'author',
-        cols: 1,
-    },
-    {   
-        img: pic13,
-        title: 'Image',
-        author: 'author',
-        cols: 2,
-    },
-    {   
-        img: pic14,
-        title: 'Image',
-        author: 'author',
-        cols: 1,
-    },
 ]
-class Food extends Component {
+class Truck extends Component {
     render() {
         return (  
                 <GridList cellHeight={250} cols={4} style={{width: "79%", height: 400, border: "1px gray solid "}}>
@@ -116,4 +88,4 @@ class Food extends Component {
     }
 }
 
-export default Food;
+export default Truck;
