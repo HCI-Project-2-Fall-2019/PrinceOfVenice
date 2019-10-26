@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         return (
             <div style={backgroundStyle}>
-                <img src={logo} style={logoStyle} className="App-logo" alt="logo"/>
+                <a href="./LocateUs"><img src={logo} style={logoStyle} className="App-logo" alt="logo"/></a>
                 {/* <img src={restaurant} style={restaurantStyle} className="App-logo" alt="logo"/> */}
             </div>                
         );

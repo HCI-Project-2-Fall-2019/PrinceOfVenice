@@ -175,7 +175,7 @@ const DATA = [
                 itemIndex: 18
             },
             {
-                name: "Freash Handmade Pasta",
+                name: "Fresh Handmade Pasta",
                 ingredients: "Pasta",
                 price: "$5",
                 img: fresh_handmade_pasta_pic,
@@ -196,7 +196,7 @@ const DATA = [
             {
                 name: "Cannoli",
                 ingredients: "",
-                price: "",
+                price: "$10",
                 img: cannoli_pic,
                 itemIndex: 21
             },
@@ -239,20 +239,19 @@ class OurMenu extends Component {
                 {DATA.map((category, index) => {
                     return (
                         <div key={index}>
-                            <Typography style={{margin: "0px 10px 10px 10px"}} align="left" variant="h3">{category.name}</Typography>
+                            <Typography style={{padding: "0px 10px 10px 10px", backgroundColor: "lightgrey"}} align="left" variant="h3">{category.name}</Typography>
                             {Object.keys(category.items).map((itemIndex) => {
                                 const item = category.items[itemIndex];
                                 const booleanMapping = "item" + item.itemIndex;
                                 return (
                                     <ExpansionPanel key={itemIndex} expanded={this.state[booleanMapping]} onChange={() => this.handleChange(booleanMapping)}>
                                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                            <Typography style={{width:"65%", textAlign:"left"}}>{item.name}</Typography>
-                                            <Typography>{item.price}</Typography>
+                                            <Typography style={{width:"65%", textAlign:"left", fontWeight:750, fontStyle:"italic"}}>{item.name}</Typography>
+                                            <Typography style={{fontWeight:750, fontStyle:"italic"}}>{item.price}</Typography>
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
                                             <img src={item.img} height="100" width="100" alt={item.name}/>
                                             <Typography style={{marginLeft: 20, textAlign:"left"}}>{"Ingredients: "+ item.ingredients}</Typography>
-
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
                                 )

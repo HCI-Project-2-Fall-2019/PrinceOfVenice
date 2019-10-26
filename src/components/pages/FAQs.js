@@ -12,22 +12,33 @@ const DATA = [
         items: [
         	{
                 name: "What are the hours of operation for Prince of Venice?",
-                answer: "We open on Wednesdays from 11 am - 2 pm, and Saturdays from 6 pm - 11 pm.",
+                answer: 
+                    <div>
+                        Our operation hours vary weekly.
+                        Please check <a href="./LocateUs">Locate Us</a> page for information regarding our operation hours.
+                    </div>,
                 itemIndex: 1
             },
             {
-                name: "Does Prince of Venice offer catering?",
-                answer: "Yes, please visit CONTACT US page for more information.",
+                name: "Does Prince of Venice open during Holiday Hours?",
+                answer: "We close on all holidays.",
                 itemIndex: 2
             },
             {
-                name: "Holiday Hours?",
-                answer: "We close on all holidays.",
+                name: "Does Prince of Venice offer catering?",
+                answer: 
+                    <div>
+                        Yes we do!
+                        Please check the <a href="./ContactUs">Contact Us</a> page and select "Catering" on Subject for information regarding caterings.
+                    </div>,
                 itemIndex: 3
             },
             {
                 name: "Where do I fill out a survey of my visit?",
-                answer: "You may send us a feedback under CONTACT US page.",
+                answer: 
+                    <div>
+                        You may also send us a feedback under the <a href="./ContactUs">Contact Us</a> page and selecting "Suggestions and feedbacks" on the Subject option.
+                    </div>,
                 itemIndex: 4
             },
         ]
@@ -37,17 +48,20 @@ const DATA = [
         items: [
         	{
         		name: "Does the Prince of Venice offer vegetarian dishes?",
-        		answer: "Yes!",
+        		answer: "Yes, we do!",
         		itemIndex: 5,
         	},
         	{
         		name: "I am allergic to Dairy, Egg, Peanut, Seafood, Seasame, etc. Does your food contain those?",
-        		answer: "Most of our dishes contain cheese, some contain seafood. Please ask employee for more details.",
+        		answer: "Most of our dishes contain cheese, and some contain seafood. Please ask employee for more details.",
         		itemIndex: 6,
         	},
             {
                 name: "Is your pastas available for purchase?",
-                answer: "Yes!",
+                answer: 
+                    <div>
+                        Yes, we do sell our freshly handmade pasta and pasta sauce. Please check the <a href="./Menu">Menu</a> page for pricing information.
+                    </div>,
                 itemIndex: 7,
             },
             {
@@ -58,7 +72,7 @@ const DATA = [
         ]
     },
     {
-        name: "ToGo",
+        name: "To Go",
         items: [
         	{
         		name: "Does Prince of Venice offer ToGo ordering online?",
@@ -72,7 +86,7 @@ const DATA = [
         items: [
         	{
         		name: "Does Price of Venice have a food license?",
-        		answer: "Yes!",
+        		answer: "Yes! <ADD LINK TO LICENSE/TERMS PAGE LATER> ",
         		itemIndex: 10,
         	},
         ]
@@ -99,22 +113,22 @@ class FAQs extends Component {
 
     render() {
     return (  
-            <div>
-                <h1> FAQ </h1>
+            <Paper>
                 {DATA.map((category, index) => {
                     return (
                         <div key={index}>
-                            <Typography style={{margin: "0px 10px 10px 10px"}} align="left" variant="h3">{category.name}</Typography>
+                            <Typography style={{padding: "0px 10px 10px 10px", backgroundColor: "lightgrey"}} align="left" variant="h3">{category.name}</Typography>
                             {Object.keys(category.items).map((itemIndex) => {
                                 const item = category.items[itemIndex];
                                 const booleanMapping = "item" + item.itemIndex;
+
                                 return (
                                     <ExpansionPanel key={itemIndex} expanded={this.state[booleanMapping]} onChange={() => this.handleChange(booleanMapping)}>
                                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                            <Typography style={{width:"65%", textAlign:"left"}}>{item.name}</Typography>
+                                            <Typography style={{textAlign:"left", fontWeight:750, fontStyle:"italic"}}>{item.name}</Typography>
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
-                                            <Typography style={{marginLeft: 20, textAlign:"left"}}>{item.answer}</Typography>
+                                            <Typography style={{textAlign:"left"}}> {item.answer}</Typography>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
                                 )
@@ -122,7 +136,7 @@ class FAQs extends Component {
                         </div>
                     )
                 })}
-            </div> 
+            </Paper> 
         );
     }
 }
