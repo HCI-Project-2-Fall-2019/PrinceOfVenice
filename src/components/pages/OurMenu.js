@@ -35,7 +35,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const DATA = [
     {
-        name: "Starter",
+        name: "Starters",
         items: [
             {
                 name: "Caprese",
@@ -77,7 +77,7 @@ const DATA = [
         items: [
             {
                 name: "Spaghetti alla Puttanesca",
-                ingredients: "tomatoes, olive oil, anchovies, olives, capers",
+                ingredients: "Tomatoes, Olive oil, Anchovies, Olives, Capers",
                 price: "$13",
                 img: spaghetti_alla_puttanesca_pic,
                 itemIndex: 5
@@ -176,7 +176,7 @@ const DATA = [
             },
             {
                 name: "Freash Handmade Pasta",
-                ingredients: "pasta",
+                ingredients: "Pasta",
                 price: "$5",
                 img: fresh_handmade_pasta_pic,
                 itemIndex: 19
@@ -191,7 +191,7 @@ const DATA = [
         ]
     },
      {
-        name: "Dessert",
+        name: "Desserts",
         items: [
             {
                 name: "Cannoli",
@@ -208,17 +208,8 @@ const DATA = [
                 itemIndex: 22
             }
         ]
-    }
-
-    // "Dessert": {
-    //
-    // },
-    // "Fresh Handmade Pastas (8oz)": {
-    //
-    // },
-    // "Handmade Pasta Sauces" : {
-    //
-    // }
+    },
+    
 ];
 
 
