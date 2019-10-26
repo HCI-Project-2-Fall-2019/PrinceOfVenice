@@ -54,27 +54,27 @@ class Media extends Component {
                         <Tabs
                             orientation="vertical"
                             variant="scrollable"
-                            scrollButtons="on"
+                            //scrollButtons="on"
                             indicatorColor="secondary"
                             value={value}
                             onChange={this.handleChange}
                             aria-label="Vertical tabs example"
                             //className={classes.tabs}
-                            style={{backgroundColor:"lightgrey", height: 602, width: "20%", float:"left", 
+                            style={{backgroundColor:"white", height: 602, width: "20%", float:"left", 
                                 borderRadius: "0px 0px 0px 5px"}}
                         >
                             <Tab label="Gallery One" component={Link} to="/Media/GalleryOne"
-                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                                style={{border:"1px grey solid", backgroundColor:"#007ac3", marginBottom:"2px", borderRadius: "10px"}}/>
                             <Tab label="Gallery Two" component={Link} to="/Media/GalleryTwo"
-                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                                style={{border:"1px grey solid", backgroundColor:"#007ac3", marginBottom:"2px", borderRadius: "10px"}}/>
                             <Tab label="Foods" component={Link} to="/Media/Foods"
-                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                                style={{border:"1px grey solid", backgroundColor:"#007ac3", marginBottom:"2px", borderRadius: "10px"}}/>
                             <Tab label="Ingredients" component={Link} to="/Media/Ingredient"
-                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                                style={{border:"1px grey solid", backgroundColor:"#007ac3", marginBottom:"2px", borderRadius: "10px"}}/>
                             <Tab label="Truck" component={Link} to="/Media/Truck"
-                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                                style={{border:"1px grey solid", backgroundColor:"#007ac3", marginBottom:"2px", borderRadius: "10px"}}/>
                             <Tab label="Cooking" component={Link} to="/Media/Cooking"
-                                style={{border:"1px grey solid", marginBottom:"2px"}}/>
+                                style={{border:"1px grey solid", backgroundColor:"#007ac3", marginBottom:"2px", borderRadius: "10px"}}/>
                         </Tabs>
                         <Switch style={{width: "50%"}}>
                             <Route path="/Media/GalleryOne" component={GalleryOne} />

@@ -261,6 +261,7 @@ class OurMenu extends Component {
                                         <ExpansionPanelDetails>
                                             <img src={item.img} height="100" width="100" alt={item.name}/>
                                             <Typography style={{marginLeft: 20, textAlign:"left"}}>{"Ingredients: "+ item.ingredients}</Typography>
+
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
                                 )

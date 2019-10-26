@@ -11,7 +11,7 @@ class AboutUs extends Component {
         return (  
             <div>
                 <div style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
                     padding: 10,
                     borderRadius: 10,
                     maxWidth: 950,
