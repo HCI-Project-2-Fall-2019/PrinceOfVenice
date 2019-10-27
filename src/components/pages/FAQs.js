@@ -82,11 +82,13 @@ const DATA = [
         ]
     },
      {
-        name: "License",
+        name: "Franchise Opportunity",
         items: [
         	{
-        		name: "Does Price of Venice have a food license?",
-        		answer: "Yes! <ADD LINK TO LICENSE/TERMS PAGE LATER> ",
+        		name: "Can I own a Prince of Venice Food Truck?",
+        		answer: <span>
+                    Yes! A copy of our license terms can be found <a href='LicenseTerms'>here</a>.
+                </span>,
         		itemIndex: 10,
         	},
         ]
@@ -113,7 +115,7 @@ class FAQs extends Component {
 
     render() {
     return (  
-            <Paper>
+            <Paper style={{borderRadius: "10px"}}>
                 {DATA.map((category, index) => {
                     return (
                         <div key={index}>
@@ -128,7 +130,7 @@ class FAQs extends Component {
                                             <Typography style={{textAlign:"left", fontWeight:750, fontStyle:"italic"}}>{item.name}</Typography>
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
-                                            <Typography style={{textAlign:"left"}}> {item.answer}</Typography>
+                                            <Typography style={{textAlign:"left"}}>{item.answer}</Typography>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
                                 )

@@ -81,11 +81,11 @@ class FindOurTrucks extends Component {
         const date = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
         return (
             <MuiThemeProvider theme={theme}>
-                <Paper style={{margin: "40px 40px 0 40px"}}>
+                <Paper>
                     <Scheduler data={data}>
                         <ViewState currentDate={date} />
                         <WeekView startDayHour={10.5} endDayHour={24} />
-                        <Appointments testProp="yeet" appointmentComponent={Appointment} />
+                        <Appointments appointmentComponent={Appointment} />
                     </Scheduler>
                 </Paper>
             </MuiThemeProvider>

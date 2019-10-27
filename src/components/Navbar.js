@@ -35,7 +35,7 @@ class Navbar extends Component {
                 <SnackbarProvider>
                 <div className="Content">
                     <div className="Content-Component" style={contentBackgroundStyle}>
-                        <div style={{"padding": "40px 80px 0 80px"}}>
+                        <div style={{padding: "40px 80px 0 80px"}}>
                             <Switch>
                                 <Route path='/AboutUs' component={AboutUs} />
                                 <Route path='/Menu' component={OurMenu} />

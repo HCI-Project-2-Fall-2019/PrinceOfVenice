@@ -240,10 +240,10 @@ class OurMenu extends Component {
     render() {
 
         return (
-            <Paper style={{margin: '40px 40px 0 40px'}}>
-                {DATA.map((category, index) => {
+            <Paper>
+                {DATA.map((category) => {
                     return (
-                        <div key={index}>
+                        <div>
                             <Typography style={{padding: "10px", backgroundColor: "lightgrey"}} align="left" variant="h3">{category.name}</Typography>
                             {Object.keys(category.items).map((itemIndex) => {
                                 const item = category.items[itemIndex];
