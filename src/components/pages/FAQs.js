@@ -13,10 +13,10 @@ const DATA = [
         	{
                 name: "What are the hours of operation for Prince of Venice?",
                 answer: 
-                    <div>
+                    <span>
                         Our operation hours vary weekly.
                         Please check <a href="./LocateUs">Locate Us</a> page for information regarding our operation hours.
-                    </div>,
+                    </span>,
                 itemIndex: 1
             },
             {
@@ -27,18 +27,18 @@ const DATA = [
             {
                 name: "Does Prince of Venice offer catering?",
                 answer: 
-                    <div>
+                    <span>
                         Yes we do!
                         Please check the <a href="./ContactUs">Contact Us</a> page and select "Catering" on Subject for information regarding caterings.
-                    </div>,
+                    </span>,
                 itemIndex: 3
             },
             {
                 name: "Where do I fill out a survey of my visit?",
                 answer: 
-                    <div>
+                    <span>
                         You may also send us a feedback under the <a href="./ContactUs">Contact Us</a> page and selecting "Suggestions and feedbacks" on the Subject option.
-                    </div>,
+                    </span>,
                 itemIndex: 4
             },
         ]
@@ -59,9 +59,9 @@ const DATA = [
             {
                 name: "Is your pastas available for purchase?",
                 answer: 
-                    <div>
+                    <span>
                         Yes, we do sell our freshly handmade pasta and pasta sauce. Please check the <a href="./Menu">Menu</a> page for pricing information.
-                    </div>,
+                    </span>,
                 itemIndex: 7,
             },
             {
