@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import License from '../images/Franchise-POV.png';
 
 class LicenseTerms extends Component {
     render() {
         return (  
             <div>
-                <h1>License Terms</h1>
+                <img src={License}></img>
             </div>         
         );
     }

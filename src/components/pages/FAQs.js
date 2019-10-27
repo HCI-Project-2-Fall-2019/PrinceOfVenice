@@ -85,8 +85,11 @@ const DATA = [
         name: "License",
         items: [
         	{
-        		name: "Does Price of Venice have a food license?",
-        		answer: "Yes! <ADD LINK TO LICENSE/TERMS PAGE LATER> ",
+        		name: "Does Prince of Venice have a food license?",
+                answer: 
+                <span>
+                    Yes!, please check the <a href="./LicenseTerms">License Terms</a> page for more information.
+                </span>,
         		itemIndex: 10,
         	},
         ]
