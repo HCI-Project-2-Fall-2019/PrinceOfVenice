@@ -95,29 +95,29 @@ class ContactUs extends Component {
     }
 
     validate (evt) {
-        var valid = true;
+        let valid = true;
         
-        var nameInvalid = false;
-        var nameErrorMessage = '';
-        var emailInvalid = false;
-        var emailErrorMessage = '';
-        var subjectInvalid = false;
-        var subjectErrorMessage = '';
+        let nameInvalid = false;
+        let nameErrorMessage = '';
+        let emailInvalid = false;
+        let emailErrorMessage = '';
+        let subjectInvalid = false;
+        let subjectErrorMessage = '';
 
-        var inquiryInvalid = false;
-        var inquiryErrorMessage = '';
-        var feedbackInvalid = false;
-        var feedbackErrorMessage = '';
+        let inquiryInvalid = false;
+        let inquiryErrorMessage = '';
+        let feedbackInvalid = false;
+        let feedbackErrorMessage = '';
 
-        var cityInvalid = false;
-        var cityErrorMessage = '';
-        var statesInvalid = false;
-        var statesErrorMessage = '';
+        let cityInvalid = false;
+        let cityErrorMessage = '';
+        let statesInvalid = false;
+        let statesErrorMessage = '';
 
-        var budgetInvalid = false;
-        var budgetErrorMessage = '';
+        let budgetInvalid = false;
+        let budgetErrorMessage = '';
 
-        var nameRegEx = /^[a-zA-Z\s]*$/;  
+        let nameRegEx = /^[a-zA-Z\s]*$/;
         if (!nameRegEx.test(this.state.form.name.value)) {
             valid = false;
             nameInvalid = true;
@@ -128,7 +128,7 @@ class ContactUs extends Component {
             nameErrorMessage = 'Please Input a Name';
         }
 
-        var emailRegEx = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        let emailRegEx = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         if (!emailRegEx.test(this.state.form.email.value)) {
             valid = false;
             emailInvalid = true;
@@ -177,7 +177,7 @@ class ContactUs extends Component {
             }
 
             if(this.state.form.budget.value !== '') {
-                var numberRegex = /^\d+$/;                ;
+                let numberRegex = /^\d+$/;                ;
                 if(!numberRegex.test(this.state.form.budget.value)) {
                     valid = false;
                     budgetInvalid = true;
