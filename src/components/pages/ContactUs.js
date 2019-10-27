@@ -128,7 +128,7 @@ class ContactUs extends Component {
             nameErrorMessage = 'Please Input a Name';
         }
 
-        var emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var emailRegEx = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         if (!emailRegEx.test(this.state.form.email.value)) {
             valid = false;
             emailInvalid = true;

@@ -117,7 +117,7 @@ class FAQs extends Component {
                 {DATA.map((category, index) => {
                     return (
                         <div key={index}>
-                            <Typography style={{padding: "0px 10px 10px 10px", backgroundColor: "lightgrey"}} align="left" variant="h3">{category.name}</Typography>
+                            <Typography style={{padding: "10px", backgroundColor: "lightgrey"}} align="left" variant="h3">{category.name}</Typography>
                             {Object.keys(category.items).map((itemIndex) => {
                                 const item = category.items[itemIndex];
                                 const booleanMapping = "item" + item.itemIndex;
