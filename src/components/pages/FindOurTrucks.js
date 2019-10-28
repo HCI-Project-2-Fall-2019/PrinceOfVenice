@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography"
-import Button from "@material-ui/core/ButtonGroup"
 
 import { ViewState } from "@devexpress/dx-react-scheduler";
 import {
