@@ -34,10 +34,10 @@ const DATA = [
                 itemIndex: 3
             },
             {
-                name: "Where do I fill out a survey of my visit?",
+                name: "I had a bad experience. What can I do?",
                 answer: 
                     <span>
-                        You may also send us a feedback under the <a href="./ContactUs">Contact Us</a> page and selecting "Suggestions and feedbacks" on the Subject option.
+                        We're sorry you didn't have the best experience. We are committed to customer service so please tell us how we can make it better via <a href="./ContactUs">Contact Us</a> page and choosing "Feedback and Suggestions" on the Subject option.
                     </span>,
                 itemIndex: 4
             },

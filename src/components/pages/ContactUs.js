@@ -616,7 +616,7 @@ class ContactUs extends Component {
                             <MenuItem value="">
                             </MenuItem>
                             <MenuItem value={1}>General Inquiry</MenuItem>
-                            <MenuItem value={2}>Suggestions and Feedbacks</MenuItem>
+                            <MenuItem value={2}>Feedback and Suggestions</MenuItem>
                             <MenuItem value={3}>Catering</MenuItem>
                         </Select>
                         <FormHelperText>{form.subject.errorMessage}</FormHelperText>
