@@ -41,7 +41,7 @@ const Appointment = ({children, style, ...restProps}) => {
 
 const ColorLegend = () => {
     return (
-        <div style={{display: "flex", flexDirection: "row", border: "2px ridge", borderTopLeftRadius: "10px",  borderTopRightRadius: "10px"}}>
+        <div style={{display: "flex", flexDirection: "row", border: "2px ridge"}}>
             <Typography style={{lineHeight: "50px", backgroundColor: "#349732", width: "34%", color: "white"}}>Open to the Public (Click to See in Maps)</Typography>
             <Typography style={{lineHeight: "50px", backgroundColor: "#FFFFFF", width: "34%"}}>Off</Typography>
             <Typography style={{lineHeight: "50px", backgroundColor: "#DF1222", width: "34%", color: "white"}}>Private Event</Typography>
@@ -76,11 +76,19 @@ const appointments = [
         type: "public"
     },
     {
-        title: "Halloween Lunch",
+        title: "202 Main St.",
         startDate: new Date(2019, 9, 31, 11, 0),
         endDate: new Date(2019, 9, 31, 14, 0),
         id: 3,
         location: "202 Main St., Los Angeles, CA",
+        type: "public"
+    },
+    {
+        title: "LMU Playa Vista Campus",
+        startDate: new Date(2019, 9, 31, 13, 0),
+        endDate: new Date(2019, 9, 31, 15, 0),
+        id: 6,
+        location: "12105 E Waterfront Dr, Los Angeles, CA 90094",
         type: "public"
     },
     {
@@ -109,8 +117,10 @@ class FindOurTrucks extends Component {
         const date = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
         return (
             <MuiThemeProvider theme={theme}>
-                <Paper>
-                    <ColorLegend/>
+                <Paper style={{borderRadius: "10px"}}>
+                    <div style={{margin: "10px 0"}}>
+                        <ColorLegend/>
+                    </div>
                     <Scheduler data={data}>
                         <ViewState currentDate={date} />
                         <WeekView startDayHour={10.5} endDayHour={24} />
