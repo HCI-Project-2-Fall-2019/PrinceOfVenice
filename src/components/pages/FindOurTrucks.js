@@ -42,10 +42,10 @@ const Appointment = ({children, style, ...restProps}) => {
 
 const ColorLegend = () => {
     return (
-        <div>
-            <div>
-                <Typography>COLOR BAR HERE</Typography>
-            </div>
+        <div style={{display: "flex", flexDirection: "row", border: "2px ridge"}}>
+            <Typography style={{lineHeight: "50px", backgroundColor: "#349732", width: "34%", color: "white"}}>Open to the Public (Click to See in Maps)</Typography>
+            <Typography style={{lineHeight: "50px", backgroundColor: "#FFFFFF", width: "34%"}}>Off</Typography>
+            <Typography style={{lineHeight: "50px", backgroundColor: "#DF1222", width: "34%", color: "white"}}>Private Event</Typography>
         </div>
     )
 };
