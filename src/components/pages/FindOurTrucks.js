@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography"
+import Button from "@material-ui/core/ButtonGroup"
+
 import { ViewState } from "@devexpress/dx-react-scheduler";
 import {
     Scheduler,
@@ -29,11 +32,21 @@ const Appointment = ({children, style, ...restProps}) => {
             style={{
                 ...style,
                 backgroundColor: color,
-                borderRadius: '8px',
+                borderRadius: '10px',
             }}
         >
             {children}
         </Appointments.Appointment>
+    )
+};
+
+const ColorLegend = () => {
+    return (
+        <div>
+            <div>
+                <Typography>COLOR BAR HERE</Typography>
+            </div>
+        </div>
     )
 };
 
@@ -42,26 +55,42 @@ const today = new Date();
 const appointments = [
     {
         title: "Autism Speaks",
-        startDate: new Date(2019, 9, 23, 11, 0),
-        endDate: new Date(2019, 9, 23, 14, 0),
+        startDate: new Date(2019, 9, 28, 11, 0),
+        endDate: new Date(2019, 9, 28, 14, 0),
         id: 0,
         type: "private",
     },
     {
         title: "Ignition Creative",
-        startDate: new Date(2019, 9, 24, 11, 0),
-        endDate: new Date(2019, 9, 24, 14, 0),
+        startDate: new Date(2019, 9, 29, 11, 0),
+        endDate: new Date(2019, 9, 29, 14, 0),
         id: 1,
         location: "12959 Coral Tree Pl, Los Angeles, CA 90066",
         type: "public"
     },
     {
         title: "Nights of the Jack",
-        startDate: new Date(2019, 9, 25, 18, 0),
-        endDate: new Date(2019, 9, 25, 23, 0),
+        startDate: new Date(2019, 9, 30, 18, 0),
+        endDate: new Date(2019, 9, 30, 23, 0),
         id: 2,
         location: "26800 West Mulholland Hwy, Calabasas, CA 91302",
         type: "public"
+    },
+    {
+        title: "Halloween Lunch",
+        startDate: new Date(2019, 9, 31, 11, 0),
+        endDate: new Date(2019, 9, 31, 14, 0),
+        id: 3,
+        location: "202 Main St., Los Angeles, CA",
+        type: "public"
+    },
+    {
+        title: "Group 3 Private Event",
+        startDate: new Date(2019, 10, 1, 12, 0),
+        endDate: new Date(2019, 10, 1, 17, 0),
+        id: 4,
+        location: "",
+        type: "private"
     },
 ];
 
@@ -82,6 +111,7 @@ class FindOurTrucks extends Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <Paper>
+                    <ColorLegend/>
                     <Scheduler data={data}>
                         <ViewState currentDate={date} />
                         <WeekView startDayHour={10.5} endDayHour={24} />
