@@ -16,7 +16,7 @@ const DATA = [
                     <span>
                         Yes, but technically no. You can read about it more on our <a href="./AboutUs">About Us</a> page.
                     </span>,
-                itemIndex: 1},
+                itemIndex: 0},
         	{
                 name: "What are the hours of operation for Prince of Venice?",
                 answer: 
