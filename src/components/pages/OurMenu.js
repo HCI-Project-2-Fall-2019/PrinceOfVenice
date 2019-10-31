@@ -200,7 +200,7 @@ const DATA = [
         items: [
             {
                 name: "Cannoli",
-                ingredients: "",
+                ingredients: "Sugar, Flour, Peanuts",
                 price: "$10",
                 img: cannoli_pic,
                 itemIndex: 21

@@ -557,7 +557,6 @@ class ContactUs extends Component {
     }
 
     render() {
-        console.log(this.state.form)
         const { form } = this.state;
         let subform;
 
@@ -661,18 +660,19 @@ const okBudget = {
     height: "54px", 
     border: "1px solid lightgrey", 
     borderRadius: "4px"
-}
+};
 
 const errorBudget = {
     width: "27%", 
     height: "54px", 
     border: "1px solid red", 
     borderRadius: "4px"
-}
+};
 
 const submitButtonStyle = {
     color: '#fff',
     backgroundColor: 'rgba(34,73,138, 0.8)',
 };
+
 
 export default withSnackbar(ContactUs);

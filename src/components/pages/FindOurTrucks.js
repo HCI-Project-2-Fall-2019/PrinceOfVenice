@@ -11,6 +11,9 @@ import {
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { blue } from "@material-ui/core/colors";
+import Icon from '@mdi/react'
+import { mdiGoogleMaps } from '@mdi/js'
+
 
 const Appointment = ({children, style, ...restProps}) => {
     const data = children[1].props.data;
@@ -26,6 +29,8 @@ const Appointment = ({children, style, ...restProps}) => {
             onClick={() => {
                 if (data.location) {
                     window.open(`https://www.google.com/maps/place/${data.location}`, "_blank")
+                } else {
+                    console.log("WARNINGS ARE WILSEN'S FAULT")
                 }
             }}
             style={{
@@ -42,9 +47,13 @@ const Appointment = ({children, style, ...restProps}) => {
 const ColorLegend = () => {
     return (
         <div style={{display: "flex", flexDirection: "row", border: "2px ridge"}}>
-            <Typography style={{lineHeight: "50px", backgroundColor: "#349732", width: "34%", color: "white"}}>Open to the Public (Click to See in Maps)</Typography>
+            <Typography
+                style={{lineHeight: "50px", backgroundColor: "#349732", width: "33%", color: "white", display: "flex", alignItems: "center", justifyContent: "center"}}
+            >
+                Open to the Public {<Icon path={mdiGoogleMaps} title="Maps" size={1} color="white"/>}
+            </Typography>
             <Typography style={{lineHeight: "50px", backgroundColor: "#FFFFFF", width: "34%"}}>Off</Typography>
-            <Typography style={{lineHeight: "50px", backgroundColor: "#DF1222", width: "34%", color: "white"}}>Private Event</Typography>
+            <Typography style={{lineHeight: "50px", backgroundColor: "#DF1222", width: "33%", color: "white"}}>Private Event</Typography>
         </div>
     )
 };
